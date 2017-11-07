@@ -58,6 +58,6 @@ typings/
 .env
 
 # docs
-doc\*.sws
-doc\*.zip
-doc\*.pdb
+doc/*.sws
+doc/*.zip
+doc/*.pdb
