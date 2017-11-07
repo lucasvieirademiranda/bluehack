@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+# docs
+doc\*.sws
+doc\*.zip
+doc\*.pdb
