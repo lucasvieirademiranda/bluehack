@@ -1,52 +1,64 @@
 import React, { Component } from 'react';
+
+import { compose, withProps } from "recompose"
+
+import { 
+    withScriptjs, 
+    withGoogleMap, 
+    GoogleMap,
+    Marker
+} from 'react-google-maps';
+
 import PropTypes from 'prop-types';
-import {GMap} from 'primereact/components/gmap/GMap';
 
-class Map extends Component
-{
-    onOverlayClick = (event) => {
+import bullseye from '../images/bullseye.png';
 
-    };
+const Map = compose(
+    withProps({
+      googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAEiQ0AliVRHDn5-sgYx4239w6_rv-8uHA&v=3.exp&libraries=geometry,drawing,places",
+      loadingElement: <div style={{ height: '100%' }} />,
+      containerElement: <div style={{ height: '100%' }} />,
+      mapElement: <div style={{ height: '100%' }} />,
+    }),
+    withScriptjs,
+    withGoogleMap
+  )((props) => {
+      
+    const {
+        markers,
+        position,
+        defaultZoom,
+        defaultCenter,
+        center,
+        ...otherProps
+    } = props;
 
-    onMapReady = (event) => {
+    let currentCenter = defaultCenter;
+    let currentZoom = defaultZoom;
 
-    };
+    if (position)
+        currentCenter = position;
 
-    render()
-    {
-        
-        const {
-            latitude,
-            longitude,
-            zoom,
-            data,
-            ...props
-        } = this.props;
+    return (
 
-        let options = {
-            center: { lat: latitude, lng: longitude },
-            zoom: zoom
-        };
+        <GoogleMap
+            options={{ 
+                center: currentCenter,
+                zoom: currentZoom,
+                disableDefaultUI: true,
+                zoomControl: true
+            }} >
 
-        let overlays = [];
+        {position && <Marker defaultOptions={{
+            position: { lat: position.lat, lng: position.lng },
+            icon: bullseye,
+            title: "Você"
+        }}/>}
 
-        return (
-            <GMap 
-                overlays={overlays} 
-                options={options} 
-                style={{width: '100%', height: '100%'}}
-                onOverlayClick={this.onOverlayClick}
-                onMapReady={this.onMapReady} />
-        );
+        </GoogleMap>
 
-    }
+    );
 
-}
-
-Map.defaultProps = {
-    latitude: -23.5798663,
-    longitude: -46.6512633,
-    zoom: 15
-};
+  });
 
 export default Map;
