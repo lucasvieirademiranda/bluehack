@@ -1,0 +1,45 @@
+.layout {
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.filterButton {
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    z-index: 1; 
+    width: 35px;
+    height: 35px;
+}
+
+.recenterButton {
+    position: absolute; 
+    bottom: 128px; 
+    right: 10px; 
+    z-index: 1; 
+    width: 28px;
+    height: 28px;
+}
+
+.geolocationButton {
+    position: absolute; 
+    bottom: 90px; 
+    right: 10px; 
+    z-index: 1; 
+    width: 28px;
+    height: 28px;
+}
+
+.geolocationButton {
+    position: absolute; 
+    bottom: 90px; 
+    right: 10px; 
+    z-index: 1; 
+    width: 28px;
+    height: 28px;
+}
