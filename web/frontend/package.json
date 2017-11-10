@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "^2.2.5",
     "custom-react-scripts": "0.2.1",
     "font-awesome": "^4.7.0",
     "primereact": "^1.2.0",
@@ -10,7 +11,8 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-google-maps": "^9.2.2",
-    "react-router-dom": "^4.2.2"
+    "react-router-dom": "^4.2.2",
+    "ui-stack": "git+https://github.com/gatec-ntc/ui-stack.git#v0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

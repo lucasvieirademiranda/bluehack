@@ -5,6 +5,11 @@ import 'primereact/resources/themes/omega/theme.css';
 import 'primereact/components/common/Common.css';
 import 'font-awesome/css/font-awesome.css';
 
+import '../prime_react/Sidebar.css';
+import '../prime_react/Dropdown.css';
+import '../prime_react/MultiSelect.css';
+import '../prime_react/Calendar.css';
+
 import Login from './Login';
 import Home from './Home';
 import NotFound from './NotFound';

@@ -6,7 +6,8 @@ import {
     withScriptjs, 
     withGoogleMap, 
     GoogleMap,
-    Marker
+    Marker,
+    InfoWindow
 } from 'react-google-maps';
 
 import PropTypes from 'prop-types';
@@ -25,16 +26,17 @@ const Map = compose(
   )((props) => {
       
     const {
-        markers,
+        occurrences,
         position,
         defaultZoom,
         defaultCenter,
         center,
+        onMarkerClick,
+        onInfoWindowClose,
         ...otherProps
     } = props;
 
     let currentCenter = defaultCenter;
-    let currentZoom = defaultZoom;
 
     if (position)
         currentCenter = position;
@@ -42,12 +44,30 @@ const Map = compose(
     return (
 
         <GoogleMap
-            options={{ 
+            options={{
                 center: currentCenter,
-                zoom: currentZoom,
+                zoom: defaultZoom,
                 disableDefaultUI: true,
                 zoomControl: true
             }} >
+
+        {occurrences && 
+         occurrences.length > 0 && 
+         occurrences.map((occurrence, index) => {
+           
+            debugger;
+
+           return(
+                <Marker key={index}
+                        position={{ lat: occurrence.latitude, lng: occurrence.longitude}}
+                        onClick={() => onMarkerClick(index, occurrence.showInfo)}>
+                    {occurrence.showInfo && <InfoWindow key={index} onCloseClick={() => onInfoWindowClose(index)}>
+                        <div>Teste</div>
+                    </InfoWindow>}
+                </Marker>
+           );
+
+         })}
 
         {position && <Marker defaultOptions={{
             position: { lat: position.lat, lng: position.lng },
