@@ -1,0 +1,23 @@
+<div data-role="view" data-before-show="GDF.viewBeforeShow" id="ocurrences" data-layout="main-add-item-list">
+    <ul id="list-ocurrences"> </ul>
+</div>
+
+<script id="list-ocurrences-template" type="text/x-kendo-template">
+    # if(Status == 2) { #
+    <a href="views/newocurrence.html?id=#: Id #&sync=2" class="lib-ocurrences">
+        <span class="list-subdescription" style="color: green">
+    # } else { #
+    <a href="views/newocurrence.html?id=#: Id #" class="lib-ocurrences">
+        <span class="list-subdescription" style="color: darkgoldenrod">
+    # } #
+            <input type="hidden" value="#: Id #" />
+            <strong>#: GDF.strings.date #</strong>: #: FormatedDate # <br />
+            <strong>#: GDF.strings.local #</strong>: #: LocationDsc # <br />
+            <strong>#: GDF.strings.category #</strong>: #: ParentCategoryDsc #<br />
+            <strong>#: GDF.strings.subcategory #</strong>: #: CategoryDsc # <br />
+            <strong>#: GDF.strings.team #</strong>: #: TeamId # - #: TeamDsc # <br />
+            <strong>#: GDF.strings.description # </strong>: #: Description # <br/>
+            <strong>#: GDF.strings.pictures # </strong>: #: Pictures #         
+        </span>
+    </a>
+</script>

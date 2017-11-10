@@ -1,0 +1,22 @@
+.picture-btn {
+    float: right; 
+    font-size: 2.5em; 
+    margin-top: -1.25em;
+}
+
+/* IMAGE MODAL */
+#imageViewerModal{
+    height: 220pt;
+    width: 160pt;
+}
+
+.image-container {
+    text-align: center;
+    padding: 5px;
+    height: 110pt;
+}
+
+#imageviewer-picture {
+    width: 220pt;
+}
+/* IMAGE MODAL */

@@ -1,0 +1,1797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>85ce433e-01ee-47a2-8841-c7895323a8c4</ProjectGuid>
+    <ProjectTypeGuids>{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app\styles\custom.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\cultures\en.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\cultures\pt.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\gdf.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\gdf\gdf.external.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\gdf\gdf.lib.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.af-ZA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.af.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.am-ET.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.am.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-AE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-BH.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-DZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-EG.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-IQ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-JO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-KW.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-LB.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-LY.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-MA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-OM.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-QA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-SA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-SY.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-TN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar-YE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ar.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.arn-CL.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.arn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.as-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.as.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.az-Cyrl-AZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.az-Cyrl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.az-Latn-AZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.az-Latn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.az.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ba-RU.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ba.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.be-BY.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.be.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bg-BG.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bg.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bn-BD.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bn-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bo-CN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bo.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.br-FR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.br.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bs-Cyrl-BA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bs-Cyrl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bs-Latn-BA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bs-Latn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.bs.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ca-ES.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ca.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.co-FR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.co.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.cs-CZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.cs.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.cy-GB.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.cy.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.da-DK.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.da.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.de-AT.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.de-CH.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.de-DE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.de-LI.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.de-LU.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.de.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.dsb-DE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.dsb.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.dv-MV.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.dv.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.el-GR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.el.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-029.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-AU.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-BZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-CA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-GB.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-IE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-JM.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-MY.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-NZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-PH.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-SG.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-TT.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-US.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-ZA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en-ZW.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.en.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-AR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-BO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-CL.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-CO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-CR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-DO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-EC.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-ES.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-GT.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-HN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-MX.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-NI.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-PA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-PE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-PR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-PY.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-SV.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-US.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-UY.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es-VE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.es.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.et-EE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.et.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.eu-ES.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.eu.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fa-IR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fa.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fi-FI.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fi.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fil-PH.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fil.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fo-FO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fo.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fr-BE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fr-CA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fr-CH.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fr-FR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fr-LU.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fr-MC.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fr.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fy-NL.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.fy.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ga-IE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ga.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.gd-GB.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.gd.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.gl-ES.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.gl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.gsw-FR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.gsw.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.gu-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.gu.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ha-Latn-NG.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ha-Latn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ha.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.he-IL.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.he.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hi-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hi.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hr-BA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hr-HR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hr.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hsb-DE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hsb.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hu-HU.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hu.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hy-AM.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.hy.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.id-ID.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.id.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ig-NG.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ig.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ii-CN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ii.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.is-IS.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.is.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.it-CH.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.it-IT.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.it.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.iu-Cans-CA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.iu-Cans.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.iu-Latn-CA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.iu-Latn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.iu.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ja-JP.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ja.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ka-GE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ka.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.kk-KZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.kk.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.kl-GL.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.kl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.km-KH.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.km.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.kn-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.kn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ko-KR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ko.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.kok-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.kok.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ky-KG.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ky.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.lb-LU.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.lb.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.lo-LA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.lo.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.lt-LT.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.lt.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.lv-LV.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.lv.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mi-NZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mi.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mk-MK.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mk.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ml-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ml.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mn-Cyrl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mn-MN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mn-Mong-CN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mn-Mong.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.moh-CA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.moh.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mr-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mr.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ms-BN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ms-MY.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ms.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mt-MT.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.mt.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.nb-NO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.nb.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ne-NP.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ne.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.nl-BE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.nl-NL.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.nl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.nn-NO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.nn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.no.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.nso-ZA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.nso.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.oc-FR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.oc.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.or-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.or.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.pa-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.pa.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.pl-PL.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.pl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.prs-AF.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.prs.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ps-AF.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ps.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.pt-BR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.pt-PT.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.pt.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.qut-GT.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.qut.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.quz-BO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.quz-EC.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.quz-PE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.quz.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.rm-CH.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.rm.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ro-RO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ro.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ru-RU.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ru-UA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ru.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.rw-RW.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.rw.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sa-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sa.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sah-RU.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sah.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.se-FI.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.se-NO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.se-SE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.se.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.si-LK.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.si.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sk-SK.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sk.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sl-SI.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sma-NO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sma-SE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sma.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.smj-NO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.smj-SE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.smj.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.smn-FI.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.smn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sms-FI.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sms.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sq-AL.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sq.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr-Cyrl-BA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr-Cyrl-CS.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr-Cyrl-ME.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr-Cyrl-RS.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr-Cyrl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr-Latn-BA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr-Latn-CS.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr-Latn-ME.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr-Latn-RS.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr-Latn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sr.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sv-FI.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sv-SE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sv.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sw-KE.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.sw.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.syr-SY.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.syr.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ta-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ta.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.te-IN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.te.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tg-Cyrl-TJ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tg-Cyrl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tg.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.th-TH.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.th.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tk-TM.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tk.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tn-ZA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tr-TR.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tr.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tt-RU.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tt.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tzm-Latn-DZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tzm-Latn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.tzm.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ug-CN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ug.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.uk-UA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.uk.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ur-PK.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.ur.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.uz-Cyrl-UZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.uz-Cyrl.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.uz-Latn-UZ.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.uz-Latn.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.uz.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.vi-VN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.vi.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.wo-SN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.wo.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.xh-ZA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.xh.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.yo-NG.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.yo.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zh-CHS.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zh-CHT.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zh-CN.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zh-Hans.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zh-Hant.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zh-HK.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zh-MO.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zh-SG.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zh-TW.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zh.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zu-ZA.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\js\cultures\kendo.culture.zu.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\editor.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\imagebrowser.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\indeterminate.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\loading-image.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\loading.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\loading_2x.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\slider-h.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\slider-v.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\sprite.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Default\sprite_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\editor.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\imagebrowser.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\indeterminate.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\loading-image.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\loading.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\loading_2x.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\slider-h.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\slider-v.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\sprite.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\Flat\sprite_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\images\back.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\images\kendoui.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\images\kendoui.ttf">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\images\kendoui.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\images\wp8_icons.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\images\wp8_inverseicons.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.dataviz.default.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.dataviz.flat.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.dataviz.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.dataviz.mobile.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.default.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.default.mobile.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.flat.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.flat.mobile.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.mobile.all.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.mobile.android.dark.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.mobile.android.light.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.mobile.blackberry.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.mobile.common.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.mobile.flat.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.mobile.ios.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.mobile.meego.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\kendo.mobile.wp8.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\brushed-metal.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots11.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots12.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots13.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots7.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots8.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\dots9.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\glass-lighter.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\glass.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\highlight.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\hsv-gradient.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\hue.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\leather1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\leather2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\noise.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\stripe1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\stripe2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\stripe3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\stripe4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\stripe5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\stripe6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\transparency.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\kendo\styles\textures\transtexture.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\mobiscroll-android.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\mobiscroll-ios.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\mobiscroll.android-ics.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\mobiscroll.animation.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\mobiscroll.core.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\mobiscroll.ios7.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\mobiscroll.jqm.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\mobiscroll.sense-ui.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\mobiscroll.wp.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\wp_icons.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\css\wp_icons_light.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.de.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.es.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.fr.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.hu.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.it.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.ja.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.nl.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.no.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.pt-BR.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.pt-PT.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.sv.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.tr.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\scripts\libs\mobiscroll\js\i18n\mobiscroll.i18n.zh.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\styles\images\icons\ga-icons.eot">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\styles\images\icons\ga-icons.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\styles\images\icons\ga-icons.ttf">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\styles\images\icons\ga-icons.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\styles\images\logo.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\styles\main-tablet.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="gdf\styles\main.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\ionickeyboard\.fetch.json" />
+    <Content Include="Plugins\ionickeyboard\.gitignore" />
+    <Content Include="Plugins\ionickeyboard\LICENSE" />
+    <Content Include="Plugins\ionickeyboard\package.json" />
+    <Content Include="Plugins\ionickeyboard\plugin.xml" />
+    <Content Include="Plugins\ionickeyboard\README.md" />
+    <Content Include="Plugins\ionickeyboard\src\android\IonicKeyboard.java" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\index.js" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\.cproject" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\.project" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\device\libKeyboard.so" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\device\public\json_reader.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\device\public\json_value.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\device\public\json_writer.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\device\public\plugin.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\device\public\tokenizer.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\device\src\CallKeyboard.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\device\src\keyboard_js.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\device\src\keyboard_ndk.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\device\src\Logger.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json\autolink.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json\config.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json\features.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json\forwards.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json\json.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json\reader.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json\value.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json\writer.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json_batchallocator.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json_internalarray.inl" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json_internalmap.inl" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json_reader.cpp" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json_value.cpp" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json_valueiterator.inl" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\json_writer.cpp" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\plugin.cpp" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\plugin.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\tokenizer.cpp" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\public\tokenizer.h" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\libKeyboard.so" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\public\json_reader.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\public\json_value.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\public\json_writer.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\public\plugin.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\public\tokenizer.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\src\CallKeyboard.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\src\keyboard_js.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\src\keyboard_ndk.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\src\Logger.o" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\src\keyboard_js.cpp" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\src\keyboard_js.hpp" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\src\keyboard_ndk.cpp" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\src\keyboard_ndk.hpp" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\src\Logger.cpp" />
+    <Content Include="Plugins\ionickeyboard\src\blackberry10\native\src\Logger.hpp" />
+    <Content Include="Plugins\ionickeyboard\src\ios\IonicKeyboard.h" />
+    <Content Include="Plugins\ionickeyboard\src\ios\IonicKeyboard.m" />
+    <Content Include="Plugins\ionickeyboard\src\ios\UIWebViewAccessoryHiding.h" />
+    <Content Include="Plugins\ionickeyboard\src\ios\UIWebViewAccessoryHiding.m" />
+    <Content Include="Plugins\ionickeyboard\src\windows\KeyboardProxy.js" />
+    <Content Include="Plugins\ionickeyboard\www\android\keyboard.js" />
+    <Content Include="Plugins\ionickeyboard\www\browser\keyboard.js" />
+    <Content Include="Plugins\ionickeyboard\www\ios\keyboard.js" />
+    <Content Include="Plugins\ionickeyboard\www\keyboard.js" />
+    <Content Include="Plugins\ionictoast\.gitignore" />
+    <Content Include="Plugins\ionictoast\issue_template.md" />
+    <Content Include="Plugins\ionictoast\LICENSE" />
+    <Content Include="Plugins\ionictoast\package.json" />
+    <Content Include="Plugins\ionictoast\plugin.xml" />
+    <Content Include="Plugins\ionictoast\README.md" />
+    <Content Include="Plugins\ionictoast\src\android\nl\xservices\plugins\Toast.java" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\index.js" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\.cproject" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\.project" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\device\libToast.so" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\device\public\json_reader.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\device\public\json_value.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\device\public\json_writer.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\device\public\plugin.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\device\public\tokenizer.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\device\src\Logger.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\device\src\toast_js.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\device\src\toast_ndk.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json\autolink.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json\config.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json\features.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json\forwards.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json\json.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json\reader.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json\value.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json\writer.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json_batchallocator.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json_internalarray.inl" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json_internalmap.inl" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json_reader.cpp" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json_value.cpp" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json_valueiterator.inl" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\json_writer.cpp" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\plugin.cpp" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\plugin.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\tokenizer.cpp" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\public\tokenizer.h" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\simulator\libToast.so" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\simulator\public\json_reader.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\simulator\public\json_value.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\simulator\public\json_writer.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\simulator\public\plugin.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\simulator\public\tokenizer.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\simulator\src\Logger.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\simulator\src\toast_js.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\simulator\src\toast_ndk.o" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\src\Logger.cpp" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\src\Logger.hpp" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\src\toast_js.cpp" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\src\toast_js.hpp" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\src\toast_ndk.cpp" />
+    <Content Include="Plugins\ionictoast\src\blackberry10\native\src\toast_ndk.hpp" />
+    <Content Include="Plugins\ionictoast\src\ios\Toast+UIView.h" />
+    <Content Include="Plugins\ionictoast\src\ios\Toast+UIView.m" />
+    <Content Include="Plugins\ionictoast\src\ios\Toast.h" />
+    <Content Include="Plugins\ionictoast\src\ios\Toast.m" />
+    <Content Include="Plugins\ionictoast\src\windows\toastProxy.js" />
+    <Content Include="Plugins\ionictoast\src\wp8\Toast.cs" />
+    <Content Include="Plugins\ionictoast\test\tests.js" />
+    <Content Include="Plugins\ionictoast\www\Toast.js" />
+    <Content Include="views\login.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\newocurrence.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\ocurrences.html">
+      <SubType>Content</SubType>
+    </Content>
+    <None Include=".abignore" />
+    <Content Include=".abproject" />
+    <Content Include=".debug.abproject" />
+    <Content Include=".release.abproject" />
+    <Content Include="app\config.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\controllers\login.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\controllers\newocurrence.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\controllers\ocurrences.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\core\config.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\core\constants.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\core\data.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\core\enums.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\core\html.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\core\templates.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\core\util.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\cultures\en.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\cultures\pt.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\scripts\main.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\styles\images\logo.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\styles\main-phone.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\styles\main-tablet.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\styles\main.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="cordova.android.js" />
+    <Content Include="cordova.ios.js" />
+    <Content Include="cordova.wp8.js" />
+    <Content Include="index.html" />
+    <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-hdpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-land-hdpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-land-ldpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-land-mdpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-land-xhdpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-land-xxhdpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-land-xxxhdpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-ldpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-mdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-mdpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-xhdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-xhdpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-xxhdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-xxhdpi\splashscreen.png" />
+    <Resource Include="App_Resources\Android\drawable-xxxhdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-xxxhdpi\splashscreen.png" />
+    <Resource Include="App_Resources\iOS\Default-568h@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-667h.png" />
+    <Resource Include="App_Resources\iOS\Default-736h.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape-1366@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape-667h.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape-736h.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-Portrait-1366@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-Portrait.png" />
+    <Resource Include="App_Resources\iOS\Default-Portrait@2x.png" />
+    <Resource Include="App_Resources\iOS\Default.png" />
+    <Resource Include="App_Resources\iOS\Default@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-40.png" />
+    <Resource Include="App_Resources\iOS\icon-40@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-40@3x.png" />
+    <Resource Include="App_Resources\iOS\icon-60.png" />
+    <Resource Include="App_Resources\iOS\icon-60@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-60@3x.png" />
+    <Resource Include="App_Resources\iOS\icon-72.png" />
+    <Resource Include="App_Resources\iOS\icon-72@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-76.png" />
+    <Resource Include="App_Resources\iOS\icon-76@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-83.5@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small-50.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small-50@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small@2x.png" />
+    <Resource Include="App_Resources\iOS\icon.png" />
+    <Resource Include="App_Resources\iOS\icon@2x.png" />
+    <Resource Include="App_Resources\iOS\watch-172x172.png" />
+    <Resource Include="App_Resources\iOS\watch-196x196.png" />
+    <Resource Include="App_Resources\iOS\watch-48x48.png" />
+    <Resource Include="App_Resources\iOS\watch-55x55.png" />
+    <Resource Include="App_Resources\iOS\watch-58x58.png" />
+    <Resource Include="App_Resources\iOS\watch-80x80.png" />
+    <Resource Include="App_Resources\iOS\watch-87x87.png" />
+    <Resource Include="App_Resources\iOS\watch-88x88.png" />
+    <Resource Include="App_Resources\WP8\ApplicationIcon.png" />
+    <Resource Include="App_Resources\WP8\SplashScreenImage.jpg" />
+    <Resource Include="App_Resources\WP8\SplashScreenImage.screen-720p.jpg" />
+    <Resource Include="App_Resources\WP8\SplashScreenImage.screen-WVGA.jpg" />
+    <Resource Include="App_Resources\WP8\Assets\BadgeLogo.png" />
+    <Resource Include="App_Resources\WP8\Assets\Logo.png" />
+    <Resource Include="App_Resources\WP8\Assets\SplashScreen.png" />
+    <Resource Include="App_Resources\WP8\Assets\SquareTile150x150.png" />
+    <Resource Include="App_Resources\WP8\Assets\SquareTile71x71.png" />
+    <Resource Include="App_Resources\WP8\Assets\StoreLogo.png" />
+    <Resource Include="App_Resources\WP8\Assets\WideLogo.png" />
+    <Resource Include="App_Resources\WP8\Tiles\Iconic\110x110.png" />
+    <Resource Include="App_Resources\WP8\Tiles\Iconic\202x202.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\scripts\" />
+    <Folder Include="app\scripts\controllers\" />
+    <Folder Include="app\scripts\core\" />
+    <Folder Include="app\scripts\cultures\" />
+    <Folder Include="app\styles\" />
+    <Folder Include="app\styles\images\" />
+    <Folder Include="App_Resources\" />
+    <Folder Include="App_Resources\Android\" />
+    <Folder Include="App_Resources\Android\drawable-hdpi\" />
+    <Folder Include="App_Resources\Android\drawable-land-hdpi\" />
+    <Folder Include="App_Resources\Android\drawable-land-ldpi\" />
+    <Folder Include="App_Resources\Android\drawable-land-mdpi\" />
+    <Folder Include="App_Resources\Android\drawable-land-xhdpi\" />
+    <Folder Include="App_Resources\Android\drawable-land-xxhdpi\" />
+    <Folder Include="App_Resources\Android\drawable-land-xxxhdpi\" />
+    <Folder Include="App_Resources\Android\drawable-ldpi\" />
+    <Folder Include="App_Resources\Android\drawable-mdpi\" />
+    <Folder Include="App_Resources\Android\drawable-xhdpi\" />
+    <Folder Include="App_Resources\Android\drawable-xxhdpi\" />
+    <Folder Include="App_Resources\Android\drawable-xxxhdpi\" />
+    <Folder Include="App_Resources\iOS\" />
+    <Folder Include="App_Resources\WP8\" />
+    <Folder Include="App_Resources\WP8\Assets\" />
+    <Folder Include="App_Resources\WP8\Tiles\" />
+    <Folder Include="App_Resources\WP8\Tiles\Iconic\" />
+    <Folder Include="gdf\" />
+    <Folder Include="gdf\scripts\" />
+    <Folder Include="gdf\scripts\cultures\" />
+    <Folder Include="gdf\scripts\gdf\" />
+    <Folder Include="gdf\scripts\libs\" />
+    <Folder Include="gdf\scripts\libs\kendo\" />
+    <Folder Include="gdf\scripts\libs\kendo\js\" />
+    <Folder Include="gdf\scripts\libs\kendo\js\cultures\" />
+    <Folder Include="gdf\scripts\libs\kendo\styles\" />
+    <Folder Include="gdf\scripts\libs\kendo\styles\Default\" />
+    <Folder Include="gdf\scripts\libs\kendo\styles\Flat\" />
+    <Folder Include="gdf\scripts\libs\kendo\styles\images\" />
+    <Folder Include="gdf\scripts\libs\kendo\styles\textures\" />
+    <Folder Include="gdf\scripts\libs\mobiscroll\" />
+    <Folder Include="gdf\scripts\libs\mobiscroll\css\" />
+    <Folder Include="gdf\scripts\libs\mobiscroll\js\" />
+    <Folder Include="gdf\scripts\libs\mobiscroll\js\i18n\" />
+    <Folder Include="gdf\styles\" />
+    <Folder Include="gdf\styles\images\" />
+    <Folder Include="gdf\styles\images\icons\" />
+    <Folder Include="Plugins\" />
+    <Folder Include="Plugins\ionickeyboard\" />
+    <Folder Include="Plugins\ionickeyboard\src\" />
+    <Folder Include="Plugins\ionickeyboard\src\android\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\native\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\native\device\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\native\device\public\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\native\device\src\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\native\public\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\native\public\json\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\public\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\native\simulator\src\" />
+    <Folder Include="Plugins\ionickeyboard\src\blackberry10\native\src\" />
+    <Folder Include="Plugins\ionickeyboard\src\ios\" />
+    <Folder Include="Plugins\ionickeyboard\src\windows\" />
+    <Folder Include="Plugins\ionickeyboard\www\" />
+    <Folder Include="Plugins\ionickeyboard\www\android\" />
+    <Folder Include="Plugins\ionickeyboard\www\browser\" />
+    <Folder Include="Plugins\ionickeyboard\www\ios\" />
+    <Folder Include="Plugins\ionictoast\" />
+    <Folder Include="Plugins\ionictoast\src\" />
+    <Folder Include="Plugins\ionictoast\src\android\" />
+    <Folder Include="Plugins\ionictoast\src\android\nl\" />
+    <Folder Include="Plugins\ionictoast\src\android\nl\xservices\" />
+    <Folder Include="Plugins\ionictoast\src\android\nl\xservices\plugins\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\native\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\native\device\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\native\device\public\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\native\device\src\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\native\public\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\native\public\json\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\native\simulator\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\native\simulator\public\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\native\simulator\src\" />
+    <Folder Include="Plugins\ionictoast\src\blackberry10\native\src\" />
+    <Folder Include="Plugins\ionictoast\src\ios\" />
+    <Folder Include="Plugins\ionictoast\src\windows\" />
+    <Folder Include="Plugins\ionictoast\src\wp8\" />
+    <Folder Include="Plugins\ionictoast\test\" />
+    <Folder Include="Plugins\ionictoast\www\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <Import Project="$(IceniumTargets)Build.targets" />
+  <!--
+    TODO: Uncomment this code if you need to customize the build process.
+    <Target Name="BeforeBuild">
+        <Message Text="TODO: Implement BeforeBuild" Importance="high" />
+    </Target>
+
+    <Target Name="AfterBuild">
+        <Message Text="TODO: Implement AfterBuild" Importance="high" />
+    </Target>
+    -->
+</Project>

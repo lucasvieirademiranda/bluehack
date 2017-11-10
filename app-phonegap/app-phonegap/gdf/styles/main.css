@@ -1,0 +1,823 @@
+﻿@font-face {
+    font-family: 'ga-icons';
+    font-style: normal;
+    font-weight: normal;
+    src: url('images/icons/ga-icons.eot?61324454');
+    src: url('images/icons/ga-icons.eot?61324454#iefix') format('embedded-opentype'), url('images/icons/ga-icons.woff?61324454') format('woff'), url('images/icons/ga-icons.ttf?61324454') format('truetype'), url('images/icons/ga-icons.svg?61324454#ga-icons') format('svg');
+}
+
+.km-left-arrow:after, .km-left-arrow:before {
+    content: "\E800";
+    font: 1em/1em "ga-icons";
+}
+
+.km-logout:after, .km-logout:before {
+    content: "\E801";
+    font: 1em/1em "ga-icons";
+}
+
+.km-email:after, .km-email:before { content: "\e099"; }
+
+.km-export:after, .km-export:before { content: "\e0b3"; }
+
+.km-calda:after, .km-calda:before {
+    content: "\E802";
+    font: 1em/1em "ga-icons";
+}
+
+.km-save:after, .km-save:before {
+    content: "\E803";
+    font: 1em/1em "ga-icons";
+}
+
+.km-settings:after, .km-settings:before {
+    content: "\E804";
+    font: 1em/1em "ga-icons";
+}
+
+.km-iconopen:after,
+.km-iconopen:before {
+    content: "\e030";
+    color: green;
+}
+
+.km-iconclose:after,
+.km-iconclosw:before {
+    content: "\e031";
+    color: #900;
+}
+
+/* Escurecer cor da fonte da aplicação */
+
+.km-flat, .km-flat .km-navbar, .km-flat .km-content { color: #000 !important; }
+
+/* Manter a cor do ícone mais clara */
+
+.km-button { color: #4c5356; }
+
+::-webkit-scrollbar { display: none; }
+
+#gdf-app { overflow: hidden !important; }
+
+/* Fix for Kendo Mobile loading widget on Android */
+
+#gdf-app.km-flat .km-loader:before { background: none; }
+
+.km-flat .km-loader { background-color: rgba(0, 0, 0, 0.5); }
+
+.km-flat .km-loader h1 {
+    color: white;
+    display: block;
+}
+
+.ga-block-mask {
+    background-color: white;
+    opacity: 0.7;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 12000;
+}
+
+[data-role=listview] select[multiple=multiple] {
+    height: 15pt;
+    width: 46%;
+}
+
+div[data-role=layout][data-id=item-list] > header > div > span:last-child { display: none; }
+
+#entry .km-group-title { line-height: 2.5em; }
+
+/* ----------------------------------------------------------
+    Basics
+---------------------------------------------------------- */
+
+.actionsheet-description {
+    color: white;
+    padding: 0 0.6em 0 1.2em;
+    text-align: center;
+}
+
+.select-button {
+    height: 2em !important;
+    line-height: 1em !important;
+}
+
+/*input, textarea {
+    -webkit-user-modify: read-write-plaintext-only;
+    -webkit-transform: translate3d(0, 0, 0);
+}*/
+
+/* Don't allow user to select texts */
+
+.lookup { -webkit-user-select: none !important; }
+
+input.password-field {
+    -webkit-text-security: disc;
+    text-security: disc;
+}
+
+/* ----------------------------------------------------------
+    Mobiscroll Customizations
+---------------------------------------------------------- */
+
+#gdf-app .dw-simple-select .dw-i {
+    max-width: 270px;
+    min-width: 120px;
+}
+
+#gdf-app .android-ics, #gdf-app .android-ics *, #gdf-app .ios, #gdf-app .ios *, #gdf-app .ios7, #gdf-app .ios7 * {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+/* ----------------------------------------------------------
+    Drawer/Main Menu
+---------------------------------------------------------- */
+
+#gdf-app [data-role=drawer], #gdf-app [data-role=drawer] [data-role=content], body { background: rgb(190, 190, 190); }
+
+[data-role=drawer] li {
+    background: rgb(210, 210, 210) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.5);
+    color: #555;
+}
+
+[data-role=drawer] a {
+    background: rgb(200, 200, 200);
+    color: #555;
+}
+
+[data-role=view] { box-shadow: 0 0 12pt rgba(0, 0, 0, 0.5); }
+
+#username-container {
+    display: block;
+    height: 32pt;
+}
+
+#username-label {
+    display: block;
+    font-size: 9pt;
+    line-height: 14pt;
+    padding-left: 6pt;
+}
+
+#username-value {
+    display: block;
+    font-weight: bold;
+    line-height: 16pt;
+    padding-left: 6pt;
+}
+
+#main-menu li:first-child { padding: .3em .2em 0; }
+
+#main-menu li:first-child a img, #main-menu li:first-child a svg {
+    height: 15pt;
+    width: 15pt;
+}
+
+#main-menu li:nth-child(n + 1) { line-height: 37px; }
+
+#logout-button, #settings-button {
+    background: none;
+    border: none;
+    padding: .6em .6em .2em;
+}
+
+#logout-button.km-state-active, #settings-button.km-state-active { background: rgb(16, 196, 178); }
+
+#logout-button.km-state-active img, #settings-button.km-state-active img, #logout-button.km-state-active path, #settings-button.km-state-active path {
+    fill: white !important;
+    stroke: white !important;
+    stroke-width: 0;
+}
+
+#logout-button { float: left; }
+
+#settings-button { float: right; }
+
+/* ----------------------------------------------------------
+    Login Screen
+---------------------------------------------------------- */
+
+#login-box {
+    bottom: 12%;
+    position: absolute;
+}
+
+#login-box > div {
+    /*border: 1pt solid #999;*/
+    border: 0;
+    margin: auto;
+    max-width: 200pt;
+    padding: 12pt;
+    position: relative;
+    /*box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);*/
+    text-align: center;
+    width: 90%;
+    /*border-radius: 10px;*/
+}
+
+#login .version {
+    bottom: 15px;
+    color: #000;
+    font-size: 10pt;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.login-input { /*padding: 0 0 10pt;*/ }
+
+.login-input input, .login-input select {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border: 1px solid #000;
+    border-radius: 0;
+    color: #555;
+    font-size: 10pt;
+    margin: 0;
+    margin-top: -1px;
+    padding: 9px 11px;
+    width: 94%;
+}
+
+.login-input input[name="username"] {
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.login-input input[type="password"], .login-input input.password-field {
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.login-input input { border-color: #AAA; }
+
+.login-button {
+    min-height: 10pt;
+    width: 25%;
+}
+
+.login-button.left {
+    float: left;
+    padding-left: 2pt;
+    text-align: left;
+}
+
+.login-button.right {
+    float: right;
+    padding-right: 2pt;
+    text-align: right;
+}
+
+#server-selection-button { background-color: #999; }
+
+#login-box a {
+    border-radius: 8px;
+    margin-top: 10px;
+    width: 94%;
+}
+
+/* ----------------------------------------------------------
+    List View Defaults
+---------------------------------------------------------- */
+
+[data-role=listview] label {
+    color: #444;
+    display: block !important;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+[data-role=listview] select { border: none; }
+
+.listview-text-input, [data-role=listview] input[type=text], [data-role=listview] input[type=password], [data-role=listview] input[type=date], [data-role=listview] input[type=datetime], [data-role=listview] input[type=number], [data-role=listview] select {
+    display: block;
+    font-size: 11pt !important;
+    margin: 0 !important;
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    width: 100% !important;
+}
+
+[data-role=listview] select, [data-role=listview] select option { font-size: 8pt; }
+
+[data-role=listview] input[disabled], [data-role=listview] input[disabled=disabled], [data-role=listview] select[disabled], [data-role=listview] select[disabled=disabled], [data-role=listview] select[disabled] option, [data-role=listview] select[disabled=disabled] option, [data-role=listview] input[readonly], [data-role=listview] input[readonly=readonly] {
+    background-color: #f3f3f3;
+    color: #000 !important;
+    font-style: italic;
+}
+
+[data-role=listview] input[type=text].lookup {
+    display: inline;
+    width: 90% !important;
+}
+
+[data-role=listview] input[type=text].lookup.alt {
+    display: inline;
+    width: 100% !important;
+}
+
+.listview-button { text-align: center; }
+
+.list-subdescription { font-size: 0.9em; }
+
+/* ----------------------------------------------------------
+    Modal Views
+---------------------------------------------------------- */
+
+#messagebox { background-color: #fff; }
+
+#messagebox div[data-role="button"] {
+    background-color: #fff;
+    display: none;
+}
+
+#messagebox .messagebox-button-bar {
+    text-align: center;
+    width: 100%;
+}
+
+/* ----------------------------------------------------------
+    Settings
+---------------------------------------------------------- */
+
+.list-info {
+    color: #666 !important;
+    font-size: 0.85em;
+    padding-bottom: 1.3em !important;
+    padding-top: 0 !important;
+    text-align: center;
+}
+
+/* ----------------------------------------------------------
+    Number Picker
+---------------------------------------------------------- */
+
+.ga-number-picker .km-navbar .km-view-title { font-size: 1.25em; }
+
+.ga-number-picker-value {
+    border: 1pt solid #CCC;
+    font-size: 1.5em;
+    height: 40pt;
+    line-height: 40pt;
+    margin: 4pt;
+    overflow: hidden;
+    padding: 0 4pt;
+}
+
+.ga-number-picker-buttons { text-align: center; }
+
+.ga-number-picker-buttons .km-button {
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 2.76em;
+    margin: 0.1em;
+    padding: 0 !important;
+    text-align: center;
+    text-decoration: none !important;
+    width: 23%;
+}
+
+.ga-number-picker-buttons .km-icon { padding: 0.09em 0 0 0 !important; }
+
+.ga-number-picker-buttons .special:not(.km-state-active) { background-color: rgba(0, 0, 0, 0.2); }
+
+.ga-number-picker-buttons .ok:not(.km-state-active) { background-color: rgba(0, 60, 60, 0.2); }
+
+/* ----------------------------------------------------------
+    LookUp
+---------------------------------------------------------- */
+
+#list-lookup div, .left-checkbox-text { margin-left: 25px; }
+
+#list-lookup input[type=checkbox], .left-checkbox {
+    display: inline;
+    left: .8em;
+    position: absolute !important;
+    right: auto;
+}
+
+.listview-no-data {
+    font-style: italic;
+    margin-left: 0 !important;
+    text-align: center;
+}
+
+#gdf-app .km-group-title .km-button {
+    float: right;
+    line-height: 1.92em;
+    margin: 1pt 3pt 0 0;
+    padding: 0.5em 0.8em 0.6em;
+    text-indent: 0;
+}
+
+#gdf-app .km-group-title .km-button .km-icon, #gdf-app .km-navbar .km-button .km-icon { font-size: 2em; }
+
+/*
+#gdf-app .km-navbar .km-button {
+    padding: 0.7em 0.8em;
+}
+*/
+
+#gdf-app .listview-button .km-button { font-size: 1.2em; }
+
+#gdf-app .km-group-title .km-text { line-height: 3.2em; }
+
+.km-view-title { line-height: 3em; }
+
+.km-horizontal .km-view-title { line-height: 3em; }
+
+.km-navbar, .km-group-title { height: 4.2em; }
+
+/* ----------------------------------------------------------
+    View Message
+---------------------------------------------------------- */
+
+.view-message {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.view-message-container {
+    display: table;
+    height: 100%;
+    margin: auto;
+    width: 80%;
+}
+
+.view-message-text {
+    display: table-cell;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* ----------------------------------------------------------
+    About Screen
+---------------------------------------------------------- */
+
+#about-box {
+    text-align: center;
+    width: 100%;
+}
+
+label span { color: #f00; }
+
+#login-box #title, #about-box #title {
+    font-size: 20pt;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+    width: 100%;
+}
+
+/* Tela de alteração de cor */
+
+.themecolor-preview {
+    height: 300px;
+    padding: 6px;
+}
+
+.themecolor-preview div {
+    border: 1px solid #000;
+    font-size: 26px;
+    font-weight: bold;
+    height: 100%;
+    line-height: 288px;
+    text-align: center;
+    width: 100%;
+}
+
+.color-palette { background: #fff !important; }
+
+input[type='range'] {
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ffffff), color-stop(100%, #ffff00)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #ffffff 0%, #ffff00 100%); /* Chrome10+,Safari5.1+ */
+    border: 1px solid #000;
+    height: 20px;
+    width: 100%;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 1em;
+    -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, .3);
+    border: 1px solid #999;
+    height: 40px;
+    width: 40px;
+}
+
+.color-box {
+    text-align: center;
+    width: 100%;
+}
+
+.color-box div {
+    border: 1px solid #000;
+    display: inline-block;
+    height: 80px;
+    margin: 0 10px 10px 0;
+    width: 80px;
+}
+
+.black { background: #000; }
+
+.black-range {
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ffffff), color-stop(100%, #000)) !important;
+    background: -webkit-linear-gradient(left, #ffffff 0%, #000 100%) !important;
+}
+
+.yellow { background: #ff0; }
+
+.yellow-range {
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ffffff), color-stop(100%, #ff0)) !important;
+    background: -webkit-linear-gradient(left, #ffffff 0%, #ff0 100%) !important;
+}
+
+.orange { background: #ff6e00; }
+
+.orange-range {
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ffffff), color-stop(100%, #ff6e00)) !important;
+    background: -webkit-linear-gradient(left, #ffffff 0%, #ff6e00 100%) !important;
+}
+
+.blue { background: #00f; }
+
+.blue-range {
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ffffff), color-stop(100%, #00f)) !important;
+    background: -webkit-linear-gradient(left, #ffffff 0%, #00f 100%) !important;
+}
+
+.red { background: #f00; }
+
+.red-range {
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ffffff), color-stop(100%, #f00)) !important;
+    background: -webkit-linear-gradient(left, #ffffff 0%, #f00 100%) !important;
+}
+
+.green { background: #0f0; }
+
+.green-range {
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ffffff), color-stop(100%, #0f0)) !important;
+    background: -webkit-linear-gradient(left, #ffffff 0%, #0f0 100%) !important;
+}
+
+.fixed-beige { background: #FFC928; }
+
+.fixed-default { background: #F4F4F4; }
+
+/* START - Controle de li ------------- */
+
+.inline {
+    border-bottom-width: 0px;
+    display: inline-block;
+    list-style: none;
+}
+
+.col-1 {
+    float: left;
+    width: 100%;
+}
+
+.col-2 {
+    float: left;
+    width: 50%;
+}
+
+.col-3 {
+    float: left;
+    width: 33.33%;
+}
+
+.col-4 {
+    float: left;
+    width: 25%;
+}
+
+.col-20 {
+    float: left;
+    width: 20%;
+}
+
+.col-30 {
+    float: left;
+    width: 30%;
+}
+
+.col-40 {
+    float: left;
+    width: 40%;
+}
+
+.col-60 {
+    float: left;
+    width: 60%;
+}
+
+.col-70 {
+    float: left;
+    width: 70%;
+}
+
+.col-80 {
+    float: left;
+    width: 80%;
+}
+
+.row-2 { line-height: 0.85em !important; }
+
+.li-subtitle {
+    margin: 0;
+    padding-bottom: 5px !important;
+    padding-top: 5px !important;
+    text-align: center;
+}
+
+/* END - Controle de li ------------- */
+
+/* BEGIN - Custom radio ------------- */
+
+.radio { padding-left: 30pt !important; }
+
+.custom-radio {
+    display: inline;
+    left: .8em;
+    position: absolute !important;
+    right: auto;
+}
+
+/* END - Custom radio ------------- */
+
+/* Config. dos elementos exibidos no 'sobre' */
+
+.version-div > div[data-role='content'] {
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    display: -webkit-box;
+}
+
+.version-label {
+    font-size: 0.8em !important;
+    font-weight: bold;
+}
+
+.version-footer-div { height: 3em !important; }
+
+.version-footer-div div { line-height: 2em !important; }
+
+a[disabled] {
+    color: gray;
+    pointer-events: none;
+}
+
+/* ----------------------------------------------------------
+    Modal View - Informe Stop OS Date
+   ---------------------------------------------------------- */
+
+#check-desen-modal { background-color: #fff; }
+
+#check-desen-modal .check-desen-button-bar {
+    text-align: center;
+    width: 100%;
+}
+
+#check-desen-modal #check-desen-opt-accept {
+    background-color: #000000;
+    color: #f3f3f3;
+    font-size: 12pt;
+    width: 80%;
+}
+
+#check-desen-opt-accept-quantity, #check-desen-opt-accept-dosage {
+    /*width: 0%;*/
+    background-color: #000000;
+    color: #f3f3f3;
+    font-size: 12pt;
+}
+
+#check-desen-modal .label {
+    color: #444444;
+    display: block;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+.warning {
+    color: #b22222;
+    display: block;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.warning-label {
+    color: #b22222;
+    display: block;
+    font-size: 8pt;
+    font-weight: bold;
+}
+
+#check-desen-modal .input {
+    border: 1px solid rgba(200, 200, 200, 1);
+    font-size: 12pt;
+    height: auto;
+    margin: 5px 0 10px;
+    padding: 5px;
+    text-align: center;
+    width: 80%;
+}
+
+.libutton {
+    font-size: 12pt;
+    margin-left: 10%;
+    width: 80%;
+}
+
+
+.welcomeTextContainer {
+    margin: 5% 0 0 5%;
+    width: 90%;
+    text-align: center;
+    font-size: 1.6em;
+    white-space: normal;
+}
+
+#textContainer {
+    height: 60%;
+}
+
+#welcomeAnimation {
+    width: 180px;
+    height: 180px;
+    background: url('images/bird_180x180.png') top left no-repeat;
+    animation: play .5s steps(3) infinite;
+}
+
+@keyframes play {
+    100% { background-position: -540px; }
+}
+
+#welcome-device-desc-input
+{
+    margin: 5% 5% 0 5%;
+    width: 90%;
+    font-size: 1.2em;
+    display: block;
+}
+
+#welcome-device-desc-count-span 
+{
+    text-align: right;
+    margin-right: 5%;
+    font-size: 1.0em;
+    display: block;
+}
+
+#welcome-device-uri-input
+{
+    margin: 5% 5% 0 5%;
+    width: 90%;
+    font-size: 1.2em;
+    display: block;
+}
+
+.welcome-device-uri-button {
+    margin: 5% 5% 0 5%;
+    font-size: 1.0em;
+    display: block;
+}
+
+#welcome-device-register-button {
+    margin: 10% 5% 0 45%;
+}
+
+#welcome-device-end-button {
+    margin: 10% 5% 0 45%;
+}
+
+.list-up-div {
+    position: fixed !important;
+    left: 45% !important;
+    padding-bottom: 10px;
+    z-index: 350 !important;
+}
+
+.list-up-button{
+    right: inherit;
+    top: inherit;
+    -webkit-transform: rotate(90deg);
+    z-index: inherit;
+    border: 1px solid black !important;
+    border-radius: 40px !important;
+    padding-bottom: 10px !important;
+}

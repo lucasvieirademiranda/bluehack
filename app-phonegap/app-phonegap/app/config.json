@@ -1,0 +1,29 @@
+{
+    "certificateAndroid": "GAtec",
+    "certificateIos": "GAtec Distribution",
+    "provision": "App Distribution",
+    "certificateIosDebug": "GAtec AdHoc",
+    "provisionDebug": "App AdHoc",
+    "scripts": [
+        "core/constants.js",
+        "core/config.js",
+        "core/data.js",
+        "core/enums.js",
+        "core/html.js",
+        "core/templates.js",
+        "core/util.js",
+        "main.js"
+    ],
+    "styles": [
+        "styles/main.css",
+        "styles/custom.css"
+    ],
+    "tabletStyles": [
+        "styles/main-tablet.css",
+        "styles/custom.css"
+    ],
+    "phoneStyles": [
+        "styles/main-phone.css",
+        "styles/custom.css"
+    ]
+}

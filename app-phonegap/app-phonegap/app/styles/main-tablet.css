@@ -1,0 +1,42 @@
+/* CUSTOM FORMS */
+/* MENU */
+ul#list-customformmenu li { 
+    width: 33%;
+}
+
+.list-customformmenu-item {
+    height: 146px;    
+}
+
+@media only screen and (orientation : landscape) {
+    ul#list-customformmenu li { 
+        width: 25%;
+    }
+    .list-customformmenu-item {
+        height: 176px;    
+    }
+}
+
+.picture-btn {
+    float: right; 
+    font-size: 2.5em; 
+    margin-top: -0.45em;
+}
+
+
+/* IMAGE MODAL */
+#imageViewerModal{
+    height: 380pt;
+    width: 320pt;
+}
+
+.image-container {
+    text-align: center;
+    padding: 5px;
+    height: 180pt;
+}
+
+#imageviewer-picture {
+    width: 380pt;
+}
+/* IMAGE MODAL */

@@ -1,0 +1,12 @@
+{
+  "CorePlugins": [
+    "cordova-plugin-camera",
+    "cordova-plugin-console",
+    "cordova-plugin-file",
+    "cordova-plugin-geolocation",
+    "cordova-plugin-globalization",
+    "cordova-plugin-network-information",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-whitelist"
+  ]
+}

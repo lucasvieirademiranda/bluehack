@@ -1,0 +1,47 @@
+body > div { font-size: 1.4em; }
+
+#login-box > div { max-width: 300pt; }
+
+.login-input input, .login-input select { font-size: 14pt; }
+
+.listview-text-input, [data-role=listview] input, [data-role=listview] input[type=text], [data-role=listview] input[type=password], [data-role=listview] input[type=date], [data-role=listview] input[type=datetime], [data-role=listview] input[type=number], [data-role=listview] select { font-size: 14pt !important; }
+
+#username-container { height: 40pt; }
+
+#username-label { font-size: 12pt; }
+
+.km-navbar { height: 4.0em; }
+
+.km-view-title { line-height: 2.3em; }
+
+.km-horizontal .km-view-title { line-height: 2.3em; }
+
+/* ----------------------------------------------------------
+    Mobiscroll
+---------------------------------------------------------- */
+
+.dwb { font-size: 19pt !important; }
+
+.dw-li { font-size: 19pt !important; }
+
+/* ----------------------------------------------------------
+    BUG FIX: iOS 7 on iPad
+---------------------------------------------------------- */
+
+@media (orientation: landscape) {
+    html.ipad.ios7 > body {
+        bottom: 0;
+        height: 748px !important;
+        position: fixed;
+        width: 100%;
+    }
+}
+
+@media (orientation: portrait) {
+    html.ipad.ios7 > body {
+        bottom: 0;
+        height: 1004px !important;
+        position: fixed;
+        width: 100%;
+    }
+}

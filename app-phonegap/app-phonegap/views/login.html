@@ -1,0 +1,21 @@
+<div data-role="view" data-before-show="GDF.viewBeforeShow" id="login" data-layout="blank" data-stretch="true">
+    <div id="login-box">
+
+        <div class="logo"></div>
+
+        <div class="login-inputs">
+            <div class="login-input">
+                <input id="loginUser" type="text" name="username" data-lang-placeholder="user"/>
+            </div>
+            
+            <div class="login-input">
+                <input id="loginPassword" class="password-field" name="password" data-lang-placeholder="password"/>
+            </div>
+
+            <a class="custom-button" data-role="button" data-click="GDF.exec" data-exec="onClickLogin" data-lang="enter"></a>
+
+            <a class="cancel-button" data-role="button" data-click="GDF.exec" data-exec="onClickRegister" data-lang="register"></a>
+        </div>
+    </div>
+    <div class="version"></div>
+</div>

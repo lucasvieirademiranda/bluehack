@@ -1,0 +1,105 @@
+/*Kendo*/
+.km-switch-container {
+    background: rgb(161, 192, 87) !important; 
+}
+
+.km-switch-handle {
+    color: rgb(161, 192, 87) !important; 
+}
+
+.km-navbar {
+    background: rgb(81, 82, 86) !important;
+    border-color: rgb(81, 82, 86) !important;
+}
+
+.km-view-title {
+    color: white !important;
+}
+
+/*NumberPicker*/
+#npbackbtn {
+    color: rgb(161, 192, 87) !important; 
+}
+
+/*Botões*/
+.custom-button {
+    background: rgb(161, 192, 87) !important; 
+    color: white !important;
+}
+
+.menu-btn span.km-icon {
+    color: rgb(161, 192, 87) !important; 
+}
+
+.cancel-button {
+    background: #900 !important; 
+    color: white !important;
+    padding-top: 1em;
+}
+
+/*Header*/
+header .km-view-title {
+    background: rgb(81, 82, 86) !important; 
+    color: white !important; 
+}
+
+header .km-button {
+    background: rgb(81, 82, 86) !important; 
+    color: rgb(161, 192, 87) !important; 
+    border-style: none !important; 
+}
+    
+/*Menu*/
+#main-menu li {
+    background: rgb(81, 82, 86) !important; 
+    border-color: #97a0a4 !important;
+}
+
+.main-menu-header {
+    background: rgb(81, 82, 86) !important; 
+    color: rgb(161, 192, 87) !important; 
+    border: none !important;
+}
+
+#main-menu li a {
+    background: rgb(81, 82, 86) !important; 
+    color: white !important;
+}
+
+#main-menu .km-content {
+    background: rgb(81, 82, 86) !important; 
+}
+
+/*Login*/
+#login-btn-config {
+    background: rgb(81, 82, 86) !important; 
+    color: rgb(161, 192, 87) !important; 
+    border-style: none !important;     
+}
+
+/*Modal*/
+.modal-button {
+    background: rgb(161, 192, 87) !important; 
+    color: white !important;
+    width: 80%;
+}
+
+.back-button[data-role=button] {
+    background: rgb(81, 82, 86) !important; 
+    color: rgb(161, 192, 87) !important; 
+    border-style: none !important; 
+}
+
+.messagebox-button-bar.km-footer > div {
+    background: rgb(161, 192, 87) !important;
+}
+
+.messagebox-button-bar.km-footer > div > span {
+     color: white !important;
+}
+
+.ok.km-widget.km-button{
+    background: rgb(81, 82, 86) !important; 
+    color: rgb(161, 192, 87) !important; 
+    border-style: none !important; 
+}

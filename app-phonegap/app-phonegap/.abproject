@@ -1,0 +1,52 @@
+{
+  "ProjectName": "Mapfy_lite",
+  "ProjectGuid": "9cbbf8da-c76a-459d-b383-a4124804c50a",
+  "projectVersion": 1,
+  "AppIdentifier": "com.greenc.cidadaoagente",
+  "DisplayName": "Cidadao Agente",
+  "Author": "Green8",
+  "Description": "Cidadao Agente",
+  "BundleVersion": "1.0.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "FrameworkVersion": "5.0.0",
+  "AndroidPermissions": [
+    "android.permission.ACCESS_FINE_LOCATION",
+    "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS",
+    "android.permission.ACCESS_NETWORK_STATE",
+    "android.permission.CAMERA",
+    "android.permission.INTERNET",
+    "android.permission.READ_EXTERNAL_STORAGE",
+    "android.permission.SET_ORIENTATION",
+    "android.permission.WRITE_EXTERNAL_STORAGE"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "true",
+  "iOSStatusBarStyle": "Default",
+  "Framework": "Cordova",
+  "WP8TileTitle": "",
+  "WP8Publisher": "",
+  "WP8Capabilities": [
+    "ID_CAP_NETWORKING",
+    "ID_CAP_WEBBROWSERCOMPONENT"
+  ],
+  "WP8Requirements": [],
+  "WP8PublisherID": "{9bf2e488-4bf4-456c-9700-8dc0a15a5501}",
+  "WP8ProductID": "{c4c834e2-9ce3-46c5-8499-0ebed921ab88}",
+  "WPSdk": "8.0",
+  "WP8PackageIdentityName": "1234Telerik.Mapfylite",
+  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ]
+}

@@ -1,0 +1,3 @@
+[submodule "gdf"]
+	path = gdf
+	url = https://gantc.visualstudio.com/DefaultCollection/GAtec%20Mobile/_git/GDFMobileDeploy

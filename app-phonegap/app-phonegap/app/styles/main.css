@@ -1,0 +1,269 @@
+/* ELEMENTS */
+textarea {
+    width: 100% !important;
+    margin-left: 0 !important;
+    float: left !important;
+}
+/* ELEMENTS */
+
+/* ABOUT/LOGIN */
+#login-box .logo {
+    background: url('images/logo.png') top left no-repeat;
+    height: 128px;
+    width: 128px;
+}
+
+.login-inputs .login-input:first-child input {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+}
+
+.login-input input[name="username"] {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-top-right-radius: 0px;
+}
+/* ABOUT/LOGIN */
+
+/* CUSTOM ICONS */
+.km-left-arrow-180:after, 
+.km-left-arrow-180:before {
+    content: "\E800";
+    font: 1em/1em "ga-icons";
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.km-info:after,
+.km-info:before
+{
+    content: "\e0de";
+}
+
+.km-exit:after,
+.km-exit:before
+{
+    content: "\e031";
+}
+
+.km-fail:after,
+.km-fail:before
+{
+    content: "\e031";
+}
+
+.km-success:after,
+.km-success:before
+{
+    content: "\e030";
+}
+
+.km-iconfilter:before ,
+.km-iconfilter:after
+{
+    content: "\e06c";
+}
+
+.km-iconremovefilter:after,
+.km-iconremovefilter:before {
+    content: "\e06d";
+}
+
+.km-checklist:before,
+.km-checklist:after
+{
+    content: "\e086";
+}
+
+.km-sync:after, 
+.km-sync:before 
+{
+    content: "\E037";
+}
+
+.km-clock:after,
+.km-clock:before
+{
+    content: "\E08D";
+}
+
+.km-form:after,
+.km-form:before
+{
+    content: "\E07A";
+}
+
+.km-camera:after,
+.km-camera:before
+{
+    content: "\E08A";   
+}
+
+.km-garbage:after,
+.km-garbage:before
+{
+    content: "\E0C3";   
+}
+
+.km-eye:after,
+.km-eye:before 
+{
+    content: "\E09B";
+}
+/* CUSTOM ICONS */
+
+/* FILTER */
+.button-filter-sync {
+    color: green !important;
+}
+
+.button-filter-pend {
+    color: green !important;
+    /*color: darkgoldenrod !important;*/
+}
+
+.button-filter-form {
+    color: green !important;
+    /*color: dodgerblue !important;*/
+}
+/* FILTER */
+
+/* CUSTOM FORMS */
+/* MENU */
+#list-customformmenu {  
+    border-bottom-width: 0px;
+    display: inline-block;
+    list-style: none;
+    width: 100%;
+} 
+
+ul#list-customformmenu li { 
+    position: relative;
+    float: left;
+    width: 50%;
+}
+
+.list-customformmenu-item {
+    width: 100%;
+    height: 116px;    
+    border-radius: 15px;
+    -webkit-transform: none !important;
+}
+
+.list-customformmenu-item-img {
+    width: 80%;
+    height: 70%;
+    margin: 5% 0 0 10%;
+    background-size: contain;
+}
+
+@media only screen and (orientation : landscape) {
+    ul#list-customformmenu li { 
+        width: 33%;
+    }
+    .list-customformmenu-item {
+        height: 146px;    
+    }
+}
+/* MENU */
+
+/* FORM */
+#newocurrence header .km-view-title span {
+    font-size: 0.7em;
+}
+
+.customform-page {
+    width: 100%;
+}
+
+.customform-segment {
+    text-align: center;
+    color: #900;
+    font-weight: bold;
+}
+
+.customform-noimage {
+    background : url("images/no-image.png") center;
+}
+
+/* FORM */
+/* CUSTOM FORMS */
+
+/* HELP CSS */
+#filterhelp-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#filterhelp-list li {
+    position: relative;
+    min-height: 85pt;
+    padding: 10pt;
+    margin-bottom: 10px;
+    background: #DFDFDF;
+}
+
+.help-icon {
+    display: block;
+    position: absolute;
+    top: 10pt;
+    left: 10pt;
+    width: 70pt;
+    height: 70pt;
+    border: 1px solid #EFEFEF;    
+}
+
+.help-icon:before {
+    display: block;
+    line-height: 70pt;
+    text-align: center;
+    font-size: 36pt;
+}
+
+.help-tit {
+    font-size: 14pt;
+    font-weight: 700;
+}
+
+.help-tit,
+.help-txt {
+    display: block;
+    padding-left: 80pt;
+    width: 100%;
+}
+/* HELP CSS */
+
+/* IMAGE MODAL */
+.image-container img {
+    width: inherit !important;
+    height: inherit !important;
+}
+
+.small-icon {
+    font-size: 1.0em;
+}
+
+.subheader {
+    font-size: 0.7em;
+    border-top: none;
+    padding-bottom: 5em;
+}
+
+.ga-modal {
+    height: 100%; 
+    width: 90%; 
+}
+
+#imageviewer {
+    text-align: center;
+}
+
+#imageviewer-picture {
+    position: relative;
+    top: 15px;
+}
+/* IMAGE MODAL */
