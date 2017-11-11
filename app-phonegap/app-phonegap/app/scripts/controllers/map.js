@@ -12,7 +12,7 @@ GDFtemp = {
             var mapOptions = {
                 'mapType': plugin.google.maps.MapTypeId.ROADMAP,
                 'controls': {
-                    'compass': true,
+                    'compass': false,
                     'myLocationButton': true,
                     'indoorPicker': true,
                     'zoom': true
@@ -69,6 +69,10 @@ GDFtemp = {
         var self = GDF.controllers.map;
 
         var startOccurrence = function () {
+            if (GDF.controllers.newocurrence) {
+                GDF.controllers.newocurrence.shouldRefresh = true; 
+            }
+
             GDF.kendoMobileApp.navigate("views/newocurrence.html");
         };
 
