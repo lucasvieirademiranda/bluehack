@@ -292,19 +292,20 @@ GDF.util.imageViewer = function(editMode) {
     };
 };
 
-GDF.util.toast = function(message, duration) {
+GDF.util.toast = function(message, duration, callback) {
     if (typeof duration === "undefined") {
         duration = "long"; 
     } else {
         duration = (duration === GDF.enums.Toast.Long ? "long" : "short");
     }
 
-    if (typeof window === "undefined" && typeof window.plugins === "undefined" && typeof window.plugins.toast === "undefined") {
+    if (typeof window === "undefined" && typeof window.plugins === "undefined" && typeof window.plugins.toast === "undefined" && !callback) {
         window.plugins.toast.show(message, duration ? "short" : "long", "bottom");
     } else {
         GDF.messageBox({
             text: message,
-            timeout: GDF.settings.defaultMessageTime
+            timeout: GDF.settings.defaultMessageTime,
+            timeoutCallback: callback
         });
     }
 };
@@ -493,8 +494,8 @@ GDF.util.getLocalFields = function () {
 
     fields.push({ Id: 1, ComponentType: 6, Mandatory: "true", Label: "Data/Hora Atual", MaxCharacters: 0, DecimalPlaces: 0, MinValue: "now", MaxValue: "now", FieldOrder: 1, DbField: "CreateDate" });
     fields.push({ Id: 2, ComponentType: 1, Mandatory: "true", Label: "CEP", MaxCharacters: 8, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 2, DbField: "Cep" });
-    fields.push({ Id: 3, ComponentType: 1, Mandatory: "true", Label: "Cidade", MaxCharacters: 30, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 3, DbField: "City" });
-    fields.push({ Id: 4, ComponentType: 1, Mandatory: "true", Label: "Estado", MaxCharacters: 30, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 4, DbField: "State" });
+    fields.push({ Id: 3, ComponentType: 1, Mandatory: "true", Label: "Estado", MaxCharacters: 30, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 3, DbField: "State" });
+    fields.push({ Id: 4, ComponentType: 1, Mandatory: "true", Label: "Cidade", MaxCharacters: 30, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 4, DbField: "City" });
     fields.push({ Id: 5, ComponentType: 1, Mandatory: "true", Label: "Endere&ccedil;o", MaxCharacters: 150, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 5, DbField: "Address1" });
     fields.push({ Id: 6, ComponentType: 1, Mandatory: "false", Label: "Complemento", MaxCharacters: 100, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 6, DbField: "Address2" });
 
@@ -512,3 +513,16 @@ GDF.util.getDetailfields = function () {
 
     return fields;
 };
+
+
+GDF.util.goToOnMap = function (target) {
+    var pos = {
+        'tilt': 60,
+        'zoom': 18,
+        'bearing': 140
+    }
+
+    pos["target"] = target;
+
+    map.animateCamera(pos);
+}

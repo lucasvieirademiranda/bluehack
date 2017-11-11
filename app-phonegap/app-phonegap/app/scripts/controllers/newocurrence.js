@@ -68,7 +68,7 @@ GDFtemp = {
 
     configView: function (e) {
         var self = GDF.controllers.newocurrence;
-        debugger;
+
         // Pega todos os campos com data-model
         var models = self.find("[data-model]");
 
@@ -149,6 +149,67 @@ GDFtemp = {
             //self.loadData();
         } else {
             self.Uuid = GDF.getUuid();
+
+            debugger;
+
+            var fail = function () {
+                // GDF.util.toast(GDF.strings.failToAccessGPS);
+            };
+
+            var getPosition = function () {
+                GDF.blockApp(GDF.strings.searchingAddress);
+                GDF.gps.getCoords(getAddress, fail, { timeout: 30000, tryAgain: true, autoBlockUnblock: false });
+            };
+
+            var getAddress = function (coords) {
+                var position = { "position": { "lat": coords.latitude, "lng": coords.longitude } };
+
+                plugin.google.maps.Geocoder.geocode(position, function (results) {
+                    GDF.unblockApp();
+                    if (results.length > 0) {
+                        GDF.settings.occurrenceLocal = results[0];
+
+                        // Carrega dados do endereço recuperado no mapa
+                        var local = results[0];
+                        if (local) {
+                            $("#cform2").val(local.postalCode);
+                            $("#cform3").val(local.adminArea);
+                            $("#cform4").val(local.locality);
+                            $("#cform5").val(local.thoroughfare + ", " + local.subThoroughfare + " - " + local.subLocality);
+                        }                        ;
+                    } else {
+                        GDF.messageBox({
+                            text: GDF.strings.addressNotFound,
+                            yes: function () {
+                                // Informa que não foi possível encontrar o endereço e se deseja  buscar novamente
+                                getPosition();
+                            },
+                            no: function () {
+                                // GDF.util.toast(GDF.strings.startOccurrenceWithoutAddress, undefined, startOccurrence);
+                            },
+                            ok: false
+                        });
+                    }
+                })
+            };
+
+            // Limpa endereço anterior
+            GDF.settings.occurrenceLocal = null;
+
+            // Questiona ao usuário seu local
+            GDF.messageBox({
+                title: GDF.strings.startingOccurrence,
+                text: GDF.strings.startOccurrence,
+                yes: function () {
+                    // Recuperar posicionamento GPS
+                    getPosition();
+                },
+                no: function () {
+                    // GDF.util.toast(GDF.strings.startOccurrenceWithoutAddress, undefined, startOccurrence);
+                },
+                ok: false,
+                bigger: true
+            });
         }
     },
 

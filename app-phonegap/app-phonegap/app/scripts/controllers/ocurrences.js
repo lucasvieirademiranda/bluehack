@@ -125,6 +125,7 @@
     // Configuração botão +
     newOcurrence: function(e) {
         var self = GDF.controllers.ocurrences;
+        debugger
 
         var success = function (coords) {
             var params = "lat=" + coords.latitude + "&long=" + coords.longitude;

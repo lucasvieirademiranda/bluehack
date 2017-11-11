@@ -21,5 +21,5 @@ GDF.settings.add({
     defaultMessageTime: 2000,
 
     // Informações da ocorrência
-    occurrence: {}
+    occurrenceLocal: null
 });

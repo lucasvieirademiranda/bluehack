@@ -1989,14 +1989,20 @@ var GDF = {
         messageParagraph.html(options.text);
         messageDiv.data("kendoMobileModalView").open();
         messageDiv.closest(".km-modalview-root").css({
-            "z-index": 11000
+            "z-index": 2000
         });
-
-        var sizeTablet = options.timeout === null ? 195 : 165;
-        var sizeSmart = options.timeout === null ? 135 : 105;
+        
+        var sizeTablet = options.timeout === null ? (options.bigger ? 360 : 195) : 165;
+        var sizeSmart = options.timeout === null ? (options.bigger ? 240 : 135) : 105;
         messageDiv.css({
             height: messageParagraph.height() + (GDF.isTablet ? sizeTablet : sizeSmart)
         });
+
+        if (options.bigger) {
+            $("#message-box-content").css({
+                "font-size": "2em"
+            });
+        }
 
         var maxWidth = messageDiv.css("max-width");
         if (maxWidth) {
@@ -2762,15 +2768,15 @@ GDF.html += "    <img src=\"#\" data-role=\"touch\" data-tap=\"GDF.controllers.i
 GDF.html += "</div>";
 
 // MESSAGEBOX -----------------------------------------------------------------
-GDF.html += "<div data-role=\"modalview\" id=\"messagebox\" data-id=\"messagebox-modal-view\" style=\"height: 100%; width: 90%; max-width: 320pt;\">";
+GDF.html += "<div data-role=\"modalview\" id=\"messagebox\" data-id=\"messagebox-modal-view\" style=\"height: 100%; width: 90%; max-width: 320pt; z-index: 2000;\">";
 GDF.html += "    <div data-role=\"navbar\"></div>";
-GDF.html += "    <p style=\"text-align:center\"></p>";
+GDF.html += "    <p id='message-box-content' style=\"text-align:center\"></p>";
 GDF.html += "    <div class=\"messagebox-button-bar\" data-role=\"footer\">";
-GDF.html += "        <div data-role=\"button\" data-action=\"ok\" data-lang=\"ok\"></div>";
-GDF.html += "        <div data-role=\"button\" data-action=\"yes\" data-lang=\"yes\"></div>";
-GDF.html += "        <div data-role=\"button\" data-action=\"no\" data-lang=\"no\"></div>";
-GDF.html += "        <div data-role=\"button\" data-action=\"cancel\" data-lang=\"cancel\"></div>";
-GDF.html += "        <div data-role=\"button\" data-action=\"close\" data-icon=\"close-button\"></div>";
+GDF.html += "        <div style=\"z-index=2000\" data-role=\"button\" data-action=\"ok\" data-lang=\"ok\"></div>";
+GDF.html += "        <div style=\"z-index=2000\" data-role=\"button\" data-action=\"yes\" data-lang=\"yes\"></div>";
+GDF.html += "        <div style=\"z-index=2000\" data-role=\"button\" data-action=\"no\" data-lang=\"no\"></div>";
+GDF.html += "        <div style=\"z-index=2000\" data-role=\"button\" data-action=\"cancel\" data-lang=\"cancel\"></div>";
+GDF.html += "        <div style=\"z-index=2000\" data-role=\"button\" data-action=\"close\" data-icon=\"close-button\"></div>";
 GDF.html += "    </div>";
 GDF.html += "</div>";
 
@@ -2996,7 +3002,7 @@ GDF.ui = {
             }, 0);
         }
     },
-
+    
     configureFixedHeaderTouch: function(controller) {
         controller.find(".km-scroll-header").kendoTouch({
             hold: this._holdScrollHeader,
@@ -4813,17 +4819,6 @@ GDF.util = {
         });
     },
 
-    updateOrCreateFile: function (value) {
-        // Configura parâmetros
-        var params = {
-            filename: GDF.appTitle + ".gat",
-            content: value,
-            resetFile: true
-        };
-
-        GDF.file.writeFile(params);
-    },
-
     isEnglish: function() {
         return kendo.culture().name.toUpperCase().indexOf("EN") !== -1;
     },
@@ -4931,37 +4926,6 @@ GDF.util = {
         return theNumberString;
     },
 
-    checkInitEntry: function(e, fields) {
-        e.view.header.find(".close-button").onTap(function() {
-            $.each(fields, function(idx, elem) {
-                if (!elem.startsWith("#")) {
-                    elem = "#" + elem;
-                }
-
-                elem = $(elem);
-                if (elem.val() && elem.val().trim() !== "" &&
-                    elem.val().trim() !== "0" && elem.val().trim() !== GDF.strings.selectAnOption) {
-                    GDF.messageBox({
-                        text: GDF.strings.backNewEntry,
-                        ok: false,
-                        cancel: false,
-                        no: true,
-                        yes: function() {
-                            GDF.kendoMobileApp.navigate("#:back");
-                        }
-                    });
-                    return false;
-                }
-
-                if (idx === fields.length - 1) {
-                    GDF.kendoMobileApp.navigate("#:back");
-                }
-
-                return true;
-            });
-        });
-    },
-
     setAddButton: function (e, viewName, param) {
         viewName = viewName.trim();
 
@@ -4995,64 +4959,6 @@ GDF.util = {
 
         var regex = new RegExp("^(\\d+)(" + decimalSeparator + "\\d+)?$");
         return regex.test(number);
-    },
-
-    calcTime: function (date1, date2, level) {
-        // level d,h,m,s
-        var d1 = date1.getTime();
-        var d2 = date2.getTime();
-
-        if (d1 < d2) {
-            return 0;
-        }
-
-        // Configuração inicial em segundos
-        var d = 1000;
-
-        // Se configurado em m,d,h
-        if (level === "d") {
-            d = 1000 * 60 * 60 * 24;
-        } else if (level === "h") {
-            d = 1000 * 60 * 60;
-        } else if (level === "m") {
-            d = 1000 * 60;
-        }
-
-        var diff = Math.abs(d1 - d2);
-
-        return Math.floor(diff / d);
-    },
-
-    /* 
-    Retorna a diferença de dias entre duas datas
-    date1 deve ser a data maior
-    */
-    getDays: function (date1, date2) {
-        return GDF.util.calcTime(date1, date2, "d");
-    },
-
-    /* 
-    Retorna a diferença de horas entre duas datas
-    date1 deve ser a data maior
-    */
-    getHours: function (date1, date2) {
-        return GDF.util.calcTime(date1, date2, "h");
-    },
-
-    /* 
-    Retorna a diferença de minutos entre duas datas
-    date1 deve ser a data maior
-    */
-    getMinutes: function (date1, date2) {
-        return GDF.util.calcTime(date1, date2, "m");
-    },
-
-    /* 
-    Retorna a diferença de segundos entre duas datas
-    date1 deve ser a data maior
-    */
-    getSeconds: function (date1, date2) {
-        return GDF.util.calcTime(date1, date2, "s");
     },
 
     /*  Verifica se o app deve ser bloqueado até que seja realizado um sincronismo completo.    	
@@ -6007,7 +5913,6 @@ GDF.util = {
         GDF.kendoMobileApp.navigate("#lookup", "slide");
     },
 
-
     insertitem: function (options) {
         var insertItemParams = {
             query: options.query,
@@ -6191,8 +6096,6 @@ GDF.gps = {
         }
 
         var gpsError = function(error, tryAgain) {
-            GDF.log.write("Falha ao recuperar coordenada: " + error);
-
             if (options.autoBlockUnblock) {
                 GDF.unblockApp();
             }
@@ -6218,7 +6121,6 @@ GDF.gps = {
             }
         };
 
-        GDF.log.write("Iniciando a recuperação da coordenada");
         if (typeof navigator !== "undefined" && typeof navigator.geolocation !== "undefined" && "geolocation" in navigator) {
             var coords = {
                 accuracy: 0,
@@ -6246,8 +6148,6 @@ GDF.gps = {
                         coords.altitudeAccuracy /= options.timeCheck;
                         coords.altitude /= options.timeCheck;
                         coords.accuracy /= options.timeCheck;
-
-                        GDF.log.write("Coordenada recuperada!\nLatitude: " + coords.latitude + "\nLongitude: " + coords.longitude);
 
                         if (options.autoBlockUnblock) {
                             GDF.unblockApp();
@@ -6280,11 +6180,8 @@ GDF.gps = {
             return;
         }
 
-        GDF.log.write("Inicio da recuperação dos talhões.");
         GDF.gps.getCoords(function (position) {
             // Seta a coordenada utilizada para filtrar talhões próximos
-            GDF.log.write("Coordenada utilizada!\nLatitude: " + position.latitude + "\nLongitude: " + position.longitude);
-
             var longitude = position.longitude;
             var latitude = position.latitude;
 
@@ -6317,12 +6214,10 @@ GDF.gps = {
             };
 
             // Executa filtro 
-            GDF.log.write("Filtrando os talhões próximo a coordenada recuperada");
             GDF.mapDb.Maps.filter(filter, { longMin: vLongmin, longMax: vLongmax, latMin: vLatmin, latMax: vLatmax })
                 .toArray(function (map) {
                     // Verifica se encontrou algum talhão
                     if (map.length === 0) {
-                        GDF.log.write("Nenhum talhão recuperado com o filtro");
                         GDF.unblockApp();
                         GDF.messageBox({
                             text: GDF.strings.gpsVectorNotFound,
@@ -6344,11 +6239,9 @@ GDF.gps = {
                         });
                         return;
                     }
-                    GDF.log.write("Recuperado " + map.length + " talhões próximos a coordenada");
                     success(map, latitude, longitude);
                 });
         }, function (error) {
-            GDF.log.write("Erro ao recuperar coordenada: " + error.message);
             GDF.messageBox({
                 text: GDF.strings.gpsError.format(error.message),
                 cancel: false,
@@ -6386,8 +6279,6 @@ GDF.gps = {
                 var a = eval(mapElem.GeometryCoordinates);
                 var is = isPointInPoly(a, { x: longitude, y: latitude });
                 if (is) {
-                    GDF.log.write("Talhão recuperado automaticamente!");
-
                     if (success) {
                         mapElem.Latitude = latitude;
                         mapElem.Longitude = longitude;
@@ -6398,7 +6289,6 @@ GDF.gps = {
                 }
 
                 if (i === map.length - 1) {
-                    GDF.log.write("Talhão não recuperado automaticamente");
                     GDF.unblockApp();
                     GDF.messageBox({
                         text: GDF.strings.gpsVectorNotFound,
@@ -6484,8 +6374,6 @@ GDF.gps = {
         }
 
         function gotMetadata(metadata) {
-            GDF.log.write("URL para atualizar o mapa: " + url);
-
             // TODO - URL PARA DESENVOLVIMENTO
             //url = "http://10.0.1.6:10003/Update/GATEC_MAP/GATEC_MAP_16.geojson";
 
@@ -6502,7 +6390,6 @@ GDF.gps = {
 
                                     // Se não encontrou dados retorna erro
                                     if (typeof data === "undefined" || data == null || data.length === 0) {
-                                        GDF.log.write("Erro ao atualizar mapas (function updateMap): O mapa esta vázio!");
                                         doFail(null, "Mapa vázio ou não encontrado");
                                         return;
                                     }
@@ -6529,15 +6416,12 @@ GDF.gps = {
                                             theDbMap.saveChanges().then(function () {
                                                 GDF.unblockApp();
 
-                                                GDF.log.write("Mapa atualizado com sucesso!");
-
                                                 GDF.settings.hasMap = true;
 
                                                 if (success) {
                                                     success();
                                                 }
                                             }).fail(function (error) {
-                                                GDF.log.write("Erro ao atualizar mapas (function updateMap): " + error.message);
                                                 doFail(null, error.message);
                                             });
                                         }
@@ -6547,8 +6431,6 @@ GDF.gps = {
 
                             // Mapa desatualizado - Atualiza mapas
                             if (length === 0) {
-                                GDF.log.write("Inserindo talhões no banco de dados...");
-
                                 // New Header
                                 var newHeader = {
                                     LastSync: new Date()
@@ -6564,12 +6446,9 @@ GDF.gps = {
                                 GDF.settings.hasMap = true;
 
                                 // Verifica se o mapa já está atualizado
-                                GDF.log.write("Ultima data de modificação do arquivo map.geojson: " + GDF.util.formatDate(dateModifiedFile, "dd/MM/yyyy hh:mm:ss"));
-
                                 // Update Header
                                 theDbMap.Header.filter("it.Id == this.Id", { Id: 1 }).take(1).forEach(function(editHeader) {
                                     if (dateModifiedFile < Number(editHeader.LastSync)) {
-                                        GDF.log.write("Mapa já está atualizado");
                                         doFail(null, GDF.strings.mapAlreadyUpdated);
                                         return;
                                     }
@@ -7402,99 +7281,6 @@ GDF.media = {
         }
 
         return imageData;
-    }
-};
-
-GDF.file = {
-
-    getFile: function (fsMode, mode, dir, file, success, fail) {
-        // Configura parâmetros para busca de diretório a partir do modo selecionado
-        var readMode = (mode === GDF.enums.FileMode.Read);
-
-        function gotFile(f) {
-            if (readMode) {
-                f.createReader(success, fail);
-            } else {
-                f.createWriter(success, fail);
-            }
-        }
-
-        function gotDir(d) {
-            d.getFile(file, { create: !readMode, exclusive: readMode }, gotFile, fail);
-        }
-
-        function gotFS(fs) {
-            fs.root.getDirectory(dir, { create: !readMode, exclusive: readMode }, gotDir);
-        }
-
-        function fileOnDeviceReady() {
-            window.requestFileSystem(fsMode, 0, gotFS, fail);
-        }
-
-        // Aguarda phonegap estar carregado para iniciar a busca do sistema de arquivo
-        document.addEventListener("deviceready", fileOnDeviceReady, false);
-    },
-
-    readFile: function (params) {
-
-
-        // Verifica se os parâmetros foram passados com sucesso.
-        if (typeof params !== "object") {
-            console.log("Parâmetros inválidos");
-        }
-
-        // Recupera parâmetros, se não foram informados, utiliza padrão
-        var dir = params["dir"] || "GATEC";
-        var filename = params["filename"] || "data.log";
-        var success = params["success"] || function () { console.log("Dados recuperados com sucesso!"); };
-        var fail = params["fail"] || function (e) { console.log("Falha ao recuperar dados: " + e.code); };
-
-        var readContent = function(reader) {
-            reader.onloadend = function() {
-                success(this.result);
-            };
-
-            reader.readAsText(file);
-        };
-
-        if (typeof LocalFileSystem === "object") {
-            GDF.file.getFile(LocalFileSystem.PERSISTENT, GDF.enums.FileMode.Read, dir, filename, readContent, fail);
-        }
-    },
-
-    writeFile: function (params) {
-
-
-        // Verifica se os parâmetros foram passados com sucesso.
-        if (typeof params !== "object") {
-            console.log("Parâmetros inválidos");
-        }
-
-        // Recupera parâmetros, se não foram informados, utiliza padrão
-        var dir = params["dir"] || "GATEC";
-        var filename = params["filename"] || "data.log";
-        var resetFile = params["resetFile"] || false;
-        var content = params["content"] || "";
-        var success = params["success"] || function () { console.log("Dados gravados com sucesso!"); };
-        var fail = params["fail"] || function (e) { console.log("Falha ao gravar dados: " + e.code); };
-
-        var writeContent = function (writer) {
-            if (resetFile && writer.length > 0) {
-                writer.seek(0);
-            }
-
-            writer.onwriteend = function (evt) {
-                if (typeof success === "function") {
-                    success();
-                }
-            };
-
-            writer.write(content);
-        }
-        if (typeof LocalFileSystem === "object") {
-            GDF.file.getFile(LocalFileSystem.PERSISTENT, GDF.enums.FileMode.Write, dir, filename, writeContent, fail);
-        }
-        
     }
 };
 
