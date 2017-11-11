@@ -14,7 +14,12 @@ GDF.settings.add({
     // Informacoes do login
     userdata: null,
 
+    // Número máximo de fotos
     maxPicturePerOcurrence: 5,
 
-    defaultMessageTime: 2000 //ms
+    // Milisegundos
+    defaultMessageTime: 2000,
+
+    // Informações da ocorrência
+    occurrence: {}
 });

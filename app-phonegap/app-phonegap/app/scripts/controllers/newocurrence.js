@@ -33,7 +33,8 @@ GDFtemp = {
         self.Uuid = e.view.params.uuid;
 
         // Remove paginas e campos dinâmicos
-        $(".customform-page.dynamic").remove();
+        $("#page-newoccurrence-local-list").empty();
+        $("#page-newoccurrence-detail-list").empty();
 
         // Configura campos do form
         self.configForm(function () {
@@ -67,7 +68,7 @@ GDFtemp = {
 
     configView: function (e) {
         var self = GDF.controllers.newocurrence;
-
+        debugger;
         // Pega todos os campos com data-model
         var models = self.find("[data-model]");
 
@@ -145,7 +146,7 @@ GDFtemp = {
 
         // Configura quando edição
         if (self.Uuid) {
-            self.loadData();
+            //self.loadData();
         } else {
             self.Uuid = GDF.getUuid();
         }
@@ -203,7 +204,7 @@ GDFtemp = {
 
     configForm: function (success, fail) {
         var self = GDF.controllers.newocurrence;
-        
+
         var configField = function (elements, page) {
             $.each(elements, function (idx, elem) {
                 var html;
@@ -370,7 +371,7 @@ GDFtemp = {
         }
 
         if (self.Images.length === self.maxsphoto) {
-            GDF.messageBox(GDF.strings.maxPicturesReached);
+            GDF.util.toast(GDF.strings.maxPicturesReached);
             return;
         }
 
@@ -394,7 +395,7 @@ GDFtemp = {
         if (self.Images.length > 0) {
             GDF.util.imageViewer().open();
         } else {
-            GDF.messageBox(GDF.strings.noPictureToShow);
+            GDF.util.toast(GDF.strings.noPictureToShow);
         }
     },
 
@@ -636,5 +637,9 @@ GDFtemp = {
         });
 
         doSave();
+    },
+
+    onClickHome: function (e) {
+        GDF.kendoMobileApp.navigate("#:back");
     }
 }

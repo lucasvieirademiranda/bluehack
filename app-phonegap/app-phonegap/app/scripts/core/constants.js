@@ -1,5 +1,5 @@
 GDF.appTitle = "Cidadao Agente";
-GDF.appVersion = "1.1.0";
+GDF.appVersion = "1.0.0";
 GDF.hasMapDb = false;
 
 GDF.mainView = "ocurrences";
@@ -7,14 +7,13 @@ GDF.mainView = "ocurrences";
 GDF.rootViews.push("ocurrences");
 
 GDF.menuItems.unshift({
-    controller: "sync",
+    controller: "ocurrences",
     refreshOnShow: true,
-    hideFromMaster: true,
-    showWhenBlock: true
+    hideFromMaster: true
 });
 
 GDF.menuItems.unshift({
-    controller: "ocurrences",
+    controller: "map",
     refreshOnShow: true,
     hideFromMaster: true
 });

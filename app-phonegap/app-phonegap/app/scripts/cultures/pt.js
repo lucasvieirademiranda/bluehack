@@ -29,6 +29,7 @@
     entry: "Lançamento",
     qtdphoto: "Quantidade de Fotos",
     register: "Registrar",
+    map: "Mapa",
 
     // Commom Questions
     deleteRecord: "Deseja excluir o registro selecionado?",

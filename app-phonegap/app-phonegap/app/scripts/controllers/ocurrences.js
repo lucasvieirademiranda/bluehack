@@ -108,7 +108,7 @@
         query += "        o.Title AS Title, ";
         query += "        o.Description AS Description, ";
         query += "        o.Status AS Status ";
-        query += "   FROM Ocurrences o ";
+        query += "   FROM Occurrence o ";
         query += "  INNER JOIN OccurenceType t ";
         query += "     ON t.Id = o.OccurenceTypeId ";
         query += "  INNER JOIN OccurrenceSubtype s ";
@@ -132,10 +132,14 @@
         };
 
         var fail = function (error) {
-            GDF.messageBox(GDF.strings.failToAccessGPS);
+            GDF.util.toast(GDF.strings.failToAccessGPS);
         };
 
         // Recupera coordenada
         GDF.gps.getCoords(success, fail, { timeout: 30000, tryAgain: true });
+    },
+
+    onClickHome: function (e) {
+        GDF.kendoMobileApp.navigate("#:back");
     }
 }

@@ -298,7 +298,7 @@ GDF.util.toast = function(message, duration) {
     } else {
         duration = (duration === GDF.enums.Toast.Long ? "long" : "short");
     }
-    
+
     if (typeof window === "undefined" && typeof window.plugins === "undefined" && typeof window.plugins.toast === "undefined") {
         window.plugins.toast.show(message, duration ? "short" : "long", "bottom");
     } else {
@@ -495,7 +495,7 @@ GDF.util.getLocalFields = function () {
     fields.push({ Id: 2, ComponentType: 1, Mandatory: "true", Label: "CEP", MaxCharacters: 8, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 2, DbField: "Cep" });
     fields.push({ Id: 3, ComponentType: 1, Mandatory: "true", Label: "Cidade", MaxCharacters: 30, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 3, DbField: "City" });
     fields.push({ Id: 4, ComponentType: 1, Mandatory: "true", Label: "Estado", MaxCharacters: 30, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 4, DbField: "State" });
-    fields.push({ Id: 5, ComponentType: 1, Mandatory: "true", Label: "Endereço", MaxCharacters: 150, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 5, DbField: "Address1" });
+    fields.push({ Id: 5, ComponentType: 1, Mandatory: "true", Label: "Endere&ccedil;o", MaxCharacters: 150, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 5, DbField: "Address1" });
     fields.push({ Id: 6, ComponentType: 1, Mandatory: "false", Label: "Complemento", MaxCharacters: 100, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 6, DbField: "Address2" });
 
     return fields;
@@ -508,7 +508,7 @@ GDF.util.getDetailfields = function () {
     fields.push({ Id: 8, ComponentType: 7, Mandatory: "true", Label: "Tipo", MaxCharacters: 0, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 8, DbField: "OccurenceTypeId" });
     fields.push({ Id: 9, ComponentType: 7, Mandatory: "true", Label: "Subtipo", MaxCharacters: 0, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 9, DbField: "OccurenceSubtypeId" });
     fields.push({ Id: 10, ComponentType: 7, Mandatory: "true", Label: "Criticidade", MaxCharacters: 0, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 10, DbField: "Criticality" });
-    fields.push({ Id: 11, ComponentType: 2, Mandatory: "true", Label: "Descrição", MinCharacters: 150, MaxCharacters: 4000, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 11, DbField: "Description" });
+    fields.push({ Id: 11, ComponentType: 2, Mandatory: "true", Label: "Descri&ccedil;&atilde;o", MinCharacters: 150, MaxCharacters: 4000, DecimalPlaces: 0, MinValue: "", MaxValue: "", FieldOrder: 11, DbField: "Description" });
 
     return fields;
 };

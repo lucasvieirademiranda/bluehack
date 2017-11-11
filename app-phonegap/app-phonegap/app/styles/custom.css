@@ -103,3 +103,48 @@ header .km-button {
     color: rgb(161, 192, 87) !important; 
     border-style: none !important; 
 }
+
+/* Mapa */
+.map-container {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.occurrence-button {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 0;
+    margin-left: 20px;
+    top: 70px;
+    margin-top: 20px;
+    font-size: 2em;
+    z-index: 2000;
+}
+
+.menu-button {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 0;
+    margin-left: 20px;
+    top: 0px;
+    margin-top: 20px;
+    font-size: 2em;
+    z-index: 2000;
+}
+
+.occurrence-button > span, .menu-button > span {
+    margin-left: -10px !important;
+}
+
+
+.occurrence-button:active, .menu-button:active {
+    font-size: 2.1em;
+}
+
+.occurrence-button:active > span, .menu-button:active > span {
+    margin-left: -12px !important;
+    color: #900;
+}

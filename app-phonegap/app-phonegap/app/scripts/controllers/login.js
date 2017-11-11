@@ -3,15 +3,7 @@ GDFtemp = {
 
     viewInit: function (e) {
         var self = GDF.controllers.login;
-
         this.find(".version:first").html(GDF.strings.version.format(GDF.appVersion));
-
-        var loggedUser = GDF.settings.loggedUser;
-        if (loggedUser) {
-            this.find("#login-box input[name=username]").val(loggedUser);
-        }
-
-        this.find("#login-box input[name=username]").mask(/\s/);
     },
 
     viewShow: function (e) {
@@ -27,7 +19,7 @@ GDFtemp = {
 
         // Ação quando já foi realizada login ao menos uma vez
         if (GDF.settings.userdata !== null) {
-            self.login(userdata.Username, userdata.Password);
+            self.login(GDF.settings.userdata.Username, GDF.settings.userdata.Password);
         }
     },
 
@@ -52,7 +44,7 @@ GDFtemp = {
         var self = GDF.controllers.login;
 
         var finish = function () {
-
+            GDF.kendoMobileApp.navigate("views/map.html");
         };
 
         var fail = function (error) {
@@ -66,12 +58,16 @@ GDFtemp = {
         };
 
         var success = function (data) {
-            GDF.settings.userdata = data;
+            GDF.settings.userdata = { Username: username, Password: password };
+            $("#username-value").text(GDF.settings.userdata.Username)
             GDF.util.downloadData(finish, fail)
         };
 
-        GDF.blockApp(GDF.strings.doingLogin);
-        GDF.util.Authenticate(username, password, success, fail);
+        //GDF.blockApp(GDF.strings.doingLogin);
+        //GDF.util.Authenticate(username, password, success, fail);
+        GDF.settings.userdata = { Username: username, Password: password };
+        $("#username-value").text(GDF.settings.userdata.Username)
+        GDF.kendoMobileApp.navigate("views/map.html");
     },
 
     onClickRegister: function (e) {

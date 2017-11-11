@@ -21,9 +21,12 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="app\scripts\controllers\map.js" />
     <Content Include="app\styles\custom.css">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="App_Resources\Android\AndroidManifest.xml" />
+    <Content Include="App_Resources\Android\xml\config.xml" />
     <Content Include="gdf\scripts\cultures\en.js">
       <SubType>Content</SubType>
     </Content>
@@ -1425,6 +1428,79 @@
     <Content Include="gdf\styles\main.css">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Plugins\googlemaps\.cordova" />
+    <Content Include="Plugins\googlemaps\.gitignore" />
+    <Content Include="Plugins\googlemaps\LICENSE" />
+    <Content Include="Plugins\googlemaps\package.json" />
+    <Content Include="Plugins\googlemaps\plugin.xml" />
+    <Content Include="Plugins\googlemaps\README.md" />
+    <Content Include="Plugins\googlemaps\roadmap.png" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\AsyncKmlParser.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\AsyncLicenseInfo.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\AsyncLoadImage.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\AsyncLoadImageInterface.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\External.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\GoogleMaps.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\MyGeocoder.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\MyPlugin.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\MyPluginInterface.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\MyPluginLayout.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginAsyncInterface.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginCircle.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginGroundOverlay.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginKmlOverlay.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginMap.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginMarker.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginPolygon.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginPolyline.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginTileOverlay.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginTileProvider.java" />
+    <Content Include="Plugins\googlemaps\src\android\plugin\google\maps\PluginUtil.java" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Circle.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Circle.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\External.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\External.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Geocoder.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Geocoder.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\GoogleMaps.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\GoogleMaps.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\GoogleMapsViewController.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\GoogleMapsViewController.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\GroundOverlay.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\GroundOverlay.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\KmlOverlay.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\KmlOverlay.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Map.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Map.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Marker.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Marker.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MFGoogleMapAdditions\GMSCoordinateBounds+Geometry.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MFGoogleMapAdditions\GMSCoordinateBounds+Geometry.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MFGoogleMapAdditions\LICENSE" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MFGoogleMapAdditions\README.md" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MyPlgunProtocol.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MyPluginLayer.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MyPluginLayer.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MyPluginLayerDebugView.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MyPluginLayerDebugView.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MyPluginScrollView.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MyPluginScrollView.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MyReachability.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\MyReachability.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\NSData-Base64\NSData+Base64.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\NSData-Base64\NSData+Base64.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\NSData-Base64\NSData+Base64.podspec" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\PluginUtil.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\PluginUtil.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Polygon.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Polygon.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Polyline.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\Polyline.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\TBXML.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\TBXML.m" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\TileOverlay.h" />
+    <Content Include="Plugins\googlemaps\src\ios\GoogleMaps\TileOverlay.m" />
+    <Content Include="Plugins\googlemaps\www\googlemaps-cdv-plugin.js" />
     <Content Include="Plugins\ionickeyboard\.fetch.json" />
     <Content Include="Plugins\ionickeyboard\.gitignore" />
     <Content Include="Plugins\ionickeyboard\LICENSE" />
@@ -1550,6 +1626,7 @@
     <Content Include="Plugins\ionictoast\src\wp8\Toast.cs" />
     <Content Include="Plugins\ionictoast\test\tests.js" />
     <Content Include="Plugins\ionictoast\www\Toast.js" />
+    <Content Include="views\map.html" />
     <Content Include="views\login.html">
       <SubType>Content</SubType>
     </Content>
@@ -1713,6 +1790,7 @@
     <Folder Include="App_Resources\Android\drawable-xhdpi\" />
     <Folder Include="App_Resources\Android\drawable-xxhdpi\" />
     <Folder Include="App_Resources\Android\drawable-xxxhdpi\" />
+    <Folder Include="App_Resources\Android\xml\" />
     <Folder Include="App_Resources\iOS\" />
     <Folder Include="App_Resources\WP8\" />
     <Folder Include="App_Resources\WP8\Assets\" />
@@ -1739,6 +1817,17 @@
     <Folder Include="gdf\styles\images\" />
     <Folder Include="gdf\styles\images\icons\" />
     <Folder Include="Plugins\" />
+    <Folder Include="Plugins\googlemaps\" />
+    <Folder Include="Plugins\googlemaps\src\" />
+    <Folder Include="Plugins\googlemaps\src\android\" />
+    <Folder Include="Plugins\googlemaps\src\android\plugin\" />
+    <Folder Include="Plugins\googlemaps\src\android\plugin\google\" />
+    <Folder Include="Plugins\googlemaps\src\android\plugin\google\maps\" />
+    <Folder Include="Plugins\googlemaps\src\ios\" />
+    <Folder Include="Plugins\googlemaps\src\ios\GoogleMaps\" />
+    <Folder Include="Plugins\googlemaps\src\ios\GoogleMaps\MFGoogleMapAdditions\" />
+    <Folder Include="Plugins\googlemaps\src\ios\GoogleMaps\NSData-Base64\" />
+    <Folder Include="Plugins\googlemaps\www\" />
     <Folder Include="Plugins\ionickeyboard\" />
     <Folder Include="Plugins\ionickeyboard\src\" />
     <Folder Include="Plugins\ionickeyboard\src\android\" />

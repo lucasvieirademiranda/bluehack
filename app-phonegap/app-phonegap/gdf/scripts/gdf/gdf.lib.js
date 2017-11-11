@@ -917,8 +917,9 @@ var GDF = {
         this.lang.loadTranslateScripts();
         this.ui.setupLayout();
 
-        if (this.settings.loggedUser) {
-            $("#username-value").html(GDF.settings.loggedUser);
+        if (this.settings.userdata !== null) {
+            var username = this.settings.userdata.Username;
+            $("#username-value").text(username);
         }
 
         GDF.util.fillParameters(function() {
@@ -1760,8 +1761,8 @@ var GDF = {
             GDF.controllers.login.shouldRefresh = true;
         }
 
-        var username = GDF.settings.loggedUser;
-        GDF.settings.loggedUser = "";
+        var username = GDF.settings.userdata.Username;
+        GDF.settings.userdata = null;
         GDF.settings.isLogged = false;
 
         $("#login").find("select, input[type=text], input[type=password], input[name=password], .password-field").val("");
@@ -2867,7 +2868,7 @@ GDF.settings.add({
     generatedDeviceKey: "",
 
     // OUTROS
-    appLanguage: "auto",
+    appLanguage: "pt-BR",
     writeLog: false,
     forceTablet: false,
 
@@ -5629,7 +5630,7 @@ GDF.util = {
             }
             if (val === 0 || val === GDF.strings.selectAnOption || val === "") {
                 GDF.util.requiredFields(controller, true, controller.statusRequiredField);
-                GDF.messageBox({ text: GDF.strings.formErrorEmptyFields });
+                GDF.GDF.util.toast(GDF.strings.formErrorEmptyFields);
                 controller.requiredFieldClicked = true;
                 validate = false;
                 return;
@@ -7338,7 +7339,7 @@ GDF.media = {
 
     _cameraError: function(message) {
         GDF.unblockApp();
-        GDF.messageBox(message);
+        GDF.util.toast(message);
     },
 
     _resizeImageData: function(image, originalImageData, quality, maxWidth, maxHeight) {
@@ -8029,4 +8030,3 @@ if (isCordovaApp) {
 } else {
     onDeviceReady();
 };
-

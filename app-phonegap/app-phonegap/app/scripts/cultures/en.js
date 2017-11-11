@@ -29,6 +29,7 @@
     entry: "Entry",
     qtdphoto: "Photos Quantity",
     register: "Create a Account",
+    map: "Map",
 
     // Commom Questions
     deleteRecord: "Would you like to delete selected record?",
