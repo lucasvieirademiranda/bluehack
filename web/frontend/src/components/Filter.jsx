@@ -75,16 +75,12 @@ export default class Filter extends Component
                 </div>
                 <div>
                     <div>Status:</div>
-                    <ContentLoader>
-                        {(options) => (
-                            <Dropdown style={{ width: "100%", height: "35px"}}
-                                      optionLabel="Selecione..."
-                                      value={this.state.status}
-                                      options={options} 
-                                      onChange={ (event) => { this.setState(event.value) } } />
-                        )}
-                    </ContentLoader>
+                    <Dropdown style={{ width: "100%", height: "35px"}}
+                                optionLabel="Selecione..."
+                                value={this.state.status}
+                                onChange={ (event) => { this.setState(event.value) } } />
                 </div>
+
             </div>
         );
 

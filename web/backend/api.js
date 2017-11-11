@@ -16,6 +16,7 @@ const sql = require('mssql');
 process.env = CONF;
 const conf = CONF[process.env.ENV];
 
+global.conf = conf;
 global.pool = new sql.ConnectionPool(conf.CONNECTION_CONFIG);
 
 var accessLogStream = fs.createWriteStream(conf.MORGAN.FILE, {flags: 'a'})
