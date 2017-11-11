@@ -3,11 +3,11 @@ let pool = global.pool;
 exports.connection = (callback) => {
 
     pool.connect((error) => {
-
+        
         if (error)
             callback(null, error);
 
-        let request = pool.Request();
+        let request = pool.request();
 
         callback(request, null);
 
