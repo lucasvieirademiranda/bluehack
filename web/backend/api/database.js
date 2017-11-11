@@ -1,9 +1,11 @@
-let pool = global.pool;
+//let pool = global.pool;
 
 exports.connection = (callback) => {
+    
+    let pool = global.pool();
 
     pool.connect((error) => {
-        
+
         if (error)
             callback(null, error);
 
@@ -17,6 +19,8 @@ exports.connection = (callback) => {
 
 exports.transactionedConnection = (callback) =>
 {
+    let pool = global.pool();
+    
     pool.connect((error) => {
 
         if (error)

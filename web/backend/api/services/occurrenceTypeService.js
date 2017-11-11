@@ -28,8 +28,10 @@ exports.getOccurrenceTypes = (callback) => {
 
             });
 
-            callback(data, null);
+            callback(occurrenceTypes, null);
 
+            request.parent.close();
+            
         });
 
     });

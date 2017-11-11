@@ -29,7 +29,7 @@ exports.getOccurrenceSubtypes = (callback) => {
 
             });
 
-            callback(data, null);
+            callback(occurrenceSubtypes, null);
 
         });
 

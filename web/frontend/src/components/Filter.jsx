@@ -4,6 +4,8 @@ import { Dropdown } from 'primereact/components/dropdown/Dropdown';
 import { MultiSelect } from 'primereact/components/multiselect/MultiSelect';
 import { Calendar } from 'primereact/components/calendar/Calendar';
 
+import { getUrl } from '../util/url';
+
 import ContentLoader from './ContentLoader';
 
 export default class Filter extends Component
@@ -27,26 +29,58 @@ export default class Filter extends Component
                         Filtros
                     </div>
                     <div>Tipo:</div>
-                    <ContentLoader>
-                        {(options) => (
-                            <Dropdown
-                                    optionLabel="Selecione..."
+                    <ContentLoader url={ getUrl('/occurrenceType/getOccurrenceTypes') }>
+                        {(data) => {
+
+                            let options = [];
+
+                            data.forEach(function(element, index) {
+                                
+                                options.push({
+                                    key: index,
+                                    value: element.Id,
+                                    label: element.Name
+                                });
+
+                            });
+
+                            return (
+                                <Dropdown
+                                    placeholder="Selecione..."
                                     value={this.state.type}
                                     options={options} 
-                                    onChange={ (event) => { this.setState(event.value) } } />
-                        )}
+                                    onChange={ (event) => { this.setState({type: event.value}) } } />
+                            );
+
+                        }}
                     </ContentLoader>
                 </div>
                 <div>
                     <div>Subtipo:</div>
-                    <ContentLoader>
-                        {(options) => (
-                            <MultiSelect 
-                                         optionLabel="Selecione..."
+                    <ContentLoader url={ getUrl('/occurrenceSubtype/getOccurrenceSubtypes') }>
+                        {(data) => {
+
+                            let options = [];
+
+                            data.forEach(function(element, index) {
+                                
+                                options.push({
+                                    key: index,
+                                    value: element.Id,
+                                    label: element.Name
+                                });
+
+                            });
+
+                            return (
+                                <MultiSelect 
+                                         defaultLabel="Selecione..."
                                          value={this.state.subType}
                                          options={options}
-                                         onChange={ (event) => { this.setState(event.value) } } />
-                        )}
+                                         onChange={ (event) => { this.setState({subType: event.value}) } } />
+                            );
+
+                        }}
                     </ContentLoader>
                 </div>
                 <div>
@@ -63,14 +97,30 @@ export default class Filter extends Component
                 </div>
                 <div>
                     <div>Responsável:</div>
-                    <ContentLoader>
-                        {(options) => (
-                            <Dropdown 
+                    <ContentLoader url={ getUrl('/user/getUsers') }>
+                        {(data) => {
+
+                            let options = [];
+
+                            data.forEach(function(element, index) {
+                                
+                                options.push({
+                                    key: index,
+                                    value: element.Id,
+                                    label: element.Name
+                                });
+
+                            });
+
+                            return (
+                                <Dropdown 
                                       optionLabel="Selecione..."
                                       value={this.state.responsable}
                                       options={options} 
                                       onChange={ (event) => { this.setState(event.value) } } />
-                        )}
+                            );
+
+                        }}
                     </ContentLoader>
                 </div>
                 <div>

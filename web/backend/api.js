@@ -7,7 +7,8 @@ const expressValidator = require('express-validator');
 const http = require('http');
 const https = require('https');
 const loader = require('./api/loader.js');
-const helmet = require('helmet');
+const cors = require('cors');
+//const helmet = require('helmet');
 const fs = require('fs');
 const sql = require('mssql');
 
@@ -17,15 +18,16 @@ process.env = CONF;
 const conf = CONF[process.env.ENV];
 
 global.conf = conf;
-global.pool = new sql.ConnectionPool(conf.CONNECTION_CONFIG);
+global.pool = () => { return new sql.ConnectionPool(conf.CONNECTION_CONFIG) };
 
 var accessLogStream = fs.createWriteStream(conf.MORGAN.FILE, {flags: 'a'})
 
 var api = express();
 
+api.use(cors());
 // Adicionando middlewares
 // Protege contra alguns cabeçalhos maliciosos: https://github.com/helmetjs/helmet
-api.use(helmet());
+//api.use(helmet());
 // Faz o parse dos jsons do body: https://github.com/expressjs/body-parser
 api.use(bodyParser.json());
 // Parser dos parametros da URL
