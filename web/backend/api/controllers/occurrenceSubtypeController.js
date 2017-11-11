@@ -10,13 +10,21 @@ router.get('/getOccurrenceSubtypes', (request, response) => {
         if (error)
         {
             response.status(500)
-                    .json(error);
+                    .type("application/json")
+                    .json({
+                        Success: false,
+                        Message: error
+                    });
 
             return;
         }
-        
-        response.status(400)
-                .json(data);
+
+        response.status(200)
+                .type("application/json")
+                .json({
+                    Success: true,
+                    Data: data
+                });
 
     });
 

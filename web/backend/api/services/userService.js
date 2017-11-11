@@ -4,7 +4,7 @@ exports.getUsers = (callback) => {
 
     database.connection((request, error) => {
 
-        let sql = 'SELECT * FROM USER';
+        let sql = 'SELECT * FROM [USER]';
 
         if (error)
         {
@@ -15,7 +15,10 @@ exports.getUsers = (callback) => {
         request.query(sql, (error, result) => {
 
             if(error)
+            {
                 callback(null, error);
+                return;   
+            }
 
             let users = [];
 
@@ -31,7 +34,7 @@ exports.getUsers = (callback) => {
 
             });
 
-            callback(data, null);
+            callback(users, null);
 
         });
 
