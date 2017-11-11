@@ -58,7 +58,7 @@ $data.Entity.extend("Occurrence", {
 
 $data.Entity.extend("OccurrenceImage", {
     Id: { type: "int", key: true, computed: true },
-    IdOcurrence: { type: "int" },
+    UuidOccurrence: { type: "int" },
     Src: { type: "string"},
     Thumbnail: { type: "string" }
 });

@@ -1,42 +1,47 @@
 GDFtemp = {
     shouldRefresh: true,
+    hasPlugin: true,
 
     viewInit: function (e) {
         var self = GDF.controllers.map;
 
-        var div = document.getElementById("map_canvas");
+        try {
+            var div = document.getElementById("map_canvas");
 
-        // Inicia mapa
-        var mapOptions = {
-            'mapType': plugin.google.maps.MapTypeId.ROADMAP,
-            'controls': {
-                'compass': true,
-                'myLocationButton': true,
-                'indoorPicker': true,
-                'zoom': true
-            },
-            'gestures': {
-                'scroll': true,
-                'tilt': true,
-                'rotate': true,
-                'zoom': true
-            }
-        };
+            // Inicia mapa
+            var mapOptions = {
+                'mapType': plugin.google.maps.MapTypeId.ROADMAP,
+                'controls': {
+                    'compass': true,
+                    'myLocationButton': true,
+                    'indoorPicker': true,
+                    'zoom': true
+                },
+                'gestures': {
+                    'scroll': true,
+                    'tilt': true,
+                    'rotate': true,
+                    'zoom': true
+                }, 'camera': {
+                    'latLng': { lat: -23.5761473, lng: -46.6463977 },
+                    'tilt': 60,
+                    'zoom': 18,
+                    'bearing': 140
+                }
+            };
 
-        var map = plugin.google.maps.Map.getMap(div, mapOptions);
-
-        map.addEventListener(plugin.google.maps.event.MAP_READY, self.onMapReady);
-
-
-        // Configura ação dos botões
-        $("#occurrence-button").on("click", self.onClickOccurrence);
+            var map = plugin.google.maps.Map.getMap(div, mapOptions);
+            map.on(plugin.google.maps.event.MAP_READY, self.onMapReady);
+        } catch (e) {
+            self.hasPlugin = false;
+        }
     },
 
     viewShow: function (e) {
         var self = GDF.controllers.map;
     },
 
-    onMapReady: function () {
+    onMapReady: function (map) {
         var getPosition = function () {
             GDF.blockApp(GDF.strings.searchingGPS);
             GDF.gps.getCoords(success, defaultPos, { timeout: 3000, tryAgain: false, autoBlockUnblock: false });
@@ -54,10 +59,50 @@ GDFtemp = {
     onClickOccurrence: function (e) {
         var self = GDF.controllers.map;
 
+        // Limpa endereço anterior
+        GDF.settings.occurrenceLocal = null;
+
+        self.onStartOccurrence();
+    },
+
+    onStartOccurrence: function (e) {
+        var self = GDF.controllers.map;
+
         var startOccurrence = function () {
             GDF.kendoMobileApp.navigate("views/newocurrence.html");
         };
 
-        startOccurrence();
-    },
+        var fail = function () {
+            GDF.util.toast(GDF.strings.failToAccessGPS);
+        };   
+
+        var getPosition = function () {
+            GDF.blockApp(GDF.strings.searchingAddress);
+            GDF.gps.getCoords(getAddress, fail, { timeout: 30000, tryAgain: true, autoBlockUnblock: false });
+        };
+
+        var getAddress = function (coords) {
+            var position = { "position": { "lat": coords.latitude, "lng": coords.longitude } };
+
+            if (!self.hasPlugin) {
+                GDF.unblockApp();
+                GDF.settings.occurrenceLocal = { "lat": coords.latitude, "lng": coords.longitude };
+                startOccurrence();
+                return;
+            }
+
+            plugin.google.maps.Geocoder.geocode(position, function (results) {
+                GDF.unblockApp();
+                if (results.length > 0) {
+                    GDF.settings.occurrenceLocal = results[0];
+                    startOccurrence();
+                } else {
+                    GDF.settings.occurrenceLocal = { "lat": coords.latitude, "lng": coords.longitude };
+                    GDF.util.toast(GDF.strings.startOccurrenceWithoutAddress, undefined, startOccurrence);
+                }
+            })
+        };
+
+        getPosition();
+    }
 };

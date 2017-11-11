@@ -39,7 +39,6 @@ window.onerror = function(message, url, lineNumber, columnNumber, errorObj) {
     } else {
         alert(errorMessage);
     }
-
 };
 
 String.prototype.contains = function(str) {
@@ -1967,17 +1966,30 @@ var GDF = {
             if (actionInfo && options.timeout === null) {
                 theButton.css("display", "inline-block");
 
+                if (options.bigger) {
+                    theButton.css({
+                        "width": "80px",
+                        "height": "45px",
+                        "font-size": "1.4em"      
+                    });
+                }
+
                 var actionCallback = (actionInfo && typeof actionInfo.callback === "function") ? actionInfo.callback : function () { };
 
                 theButton.data("messageBoxAction", actionCallback);
-                theButton.data("kendoMobileButton").unbind("click").bind("click", function() {
-                    var theAction = $(this.element).data("messageBoxAction");
 
-                    if (typeof theAction === "function") {
-                        theAction();
+                //theButton.data("kendoMobileButton").unbind("click").bind("click", function() {
+                //theButton.unbind("click touchend").bind("click touchend", function () {
+                theButton.kendoTouch({
+                    tap: function (e) {
+                        var theAction = $(this.element).data("messageBoxAction");
+
+                        if (typeof theAction === "function") {
+                            theAction();
+                        }
+
+                        GDF.closeModal(messageDiv.data("kendoMobileModalView"));
                     }
-
-                    GDF.closeModal(messageDiv.data("kendoMobileModalView"));
                 });
             } else {
                 theButton.css("display", "none");
@@ -1992,8 +2004,8 @@ var GDF = {
             "z-index": 2000
         });
         
-        var sizeTablet = options.timeout === null ? (options.bigger ? 360 : 195) : 165;
-        var sizeSmart = options.timeout === null ? (options.bigger ? 240 : 135) : 105;
+        var sizeTablet = options.timeout === null ? (options.bigger ? 340 : 195) : 165;
+        var sizeSmart = options.timeout === null ? (options.bigger ? 230 : 135) : 105;
         messageDiv.css({
             height: messageParagraph.height() + (GDF.isTablet ? sizeTablet : sizeSmart)
         });
@@ -2044,7 +2056,7 @@ var GDF = {
 
         html = html || "<div data-role=\"button\" data-action=\"" + actionName + "\"></div>";
         theButton = $(html);
-        theButton.kendoMobileButton();
+        //theButton.kendoMobileButton();
         theButton.data("action", actionName);
         theButton.prop("data-action", actionName);
         theButton.attr("data-action", actionName);
@@ -2768,15 +2780,15 @@ GDF.html += "    <img src=\"#\" data-role=\"touch\" data-tap=\"GDF.controllers.i
 GDF.html += "</div>";
 
 // MESSAGEBOX -----------------------------------------------------------------
-GDF.html += "<div data-role=\"modalview\" id=\"messagebox\" data-id=\"messagebox-modal-view\" style=\"height: 100%; width: 90%; max-width: 320pt; z-index: 2000;\">";
+GDF.html += "<div data-role=\"modalview\" id=\"messagebox\" data-id=\"messagebox-modal-view\" style=\"height: 100%; width: 90%; max-width: 320pt; z-index: 99999999;\">";
 GDF.html += "    <div data-role=\"navbar\"></div>";
 GDF.html += "    <p id='message-box-content' style=\"text-align:center\"></p>";
 GDF.html += "    <div class=\"messagebox-button-bar\" data-role=\"footer\">";
-GDF.html += "        <div style=\"z-index=2000\" data-role=\"button\" data-action=\"ok\" data-lang=\"ok\"></div>";
-GDF.html += "        <div style=\"z-index=2000\" data-role=\"button\" data-action=\"yes\" data-lang=\"yes\"></div>";
-GDF.html += "        <div style=\"z-index=2000\" data-role=\"button\" data-action=\"no\" data-lang=\"no\"></div>";
-GDF.html += "        <div style=\"z-index=2000\" data-role=\"button\" data-action=\"cancel\" data-lang=\"cancel\"></div>";
-GDF.html += "        <div style=\"z-index=2000\" data-role=\"button\" data-action=\"close\" data-icon=\"close-button\"></div>";
+GDF.html += "        <div style=\"z-index=99999999\" data-role=\"button\" data-action=\"ok\" data-lang=\"ok\"></div>";
+GDF.html += "        <div style=\"z-index=99999999\" data-role=\"button\" data-action=\"yes\" data-lang=\"yes\"></div>";
+GDF.html += "        <div style=\"z-index=99999999\" data-role=\"button\" data-action=\"no\" data-lang=\"no\"></div>";
+GDF.html += "        <div style=\"z-index=99999999\" data-role=\"button\" data-action=\"cancel\" data-lang=\"cancel\"></div>";
+GDF.html += "        <div style=\"z-index=99999999\" data-role=\"button\" data-action=\"close\" data-icon=\"close-button\"></div>";
 GDF.html += "    </div>";
 GDF.html += "</div>";
 
@@ -5536,7 +5548,7 @@ GDF.util = {
             }
             if (val === 0 || val === GDF.strings.selectAnOption || val === "") {
                 GDF.util.requiredFields(controller, true, controller.statusRequiredField);
-                GDF.GDF.util.toast(GDF.strings.formErrorEmptyFields);
+                GDF.util.toast(GDF.strings.formErrorEmptyFields);
                 controller.requiredFieldClicked = true;
                 validate = false;
                 return;

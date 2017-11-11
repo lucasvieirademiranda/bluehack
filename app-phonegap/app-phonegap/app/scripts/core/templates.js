@@ -195,7 +195,7 @@ Templates.prototype = (function() {
             return html;
         },
 
-        lookupField: function (controller, item, query, param) {
+        lookupField: function (controller, item) {
             var id = _formatId(item.Id);
             var aux = GDF.util.pascalCase(id);
 
@@ -242,11 +242,12 @@ Templates.prototype = (function() {
             return {
                 "html": html,
                 "queryName": "query" + aux,
-                "query": query,
-                "params": param,
+                "query": "",
+                "params": [],
                 "paramsName": "params" + aux,
                 "callbackName": "lookUp" + aux,
-                "callback": callback
+                "callback": callback,
+                "initLookUpName": "initLookUp" + aux
             }
         },
 

@@ -16,20 +16,13 @@
     searchingAddress: "Localizando endereço...",
     addressNotFound: "Não foi possível identificar seu endereço, deseja procurar novamente?",
     startOccurrenceWithoutAddress: "Estamos te redirecionando para a tela de ocorrência.",
-
-    // Commom Questions
-    deleteRecord: "Deseja excluir o registro selecionado?",
-    failToDeleteRecord: "Falha ao excluir registro. Tente novamente, se o problema persistir contate o suporte!",
-
     ocurrences: "Minhas Ocorrências",
     newocurrence: "Ocorrência",
     segment: "Segmento",
-    customFormInsertError: "Erro ao inserir dados do formulário. Tente novamente, se o problema persistir contate o suporte!",
-    customFormInsertDetailError: "Erro ao inserir imagens do formulário. Tente novamente, se o problema persistir contate o suporte!",
-    customFormDataNotFound: "Não foi possível recuperar o registro selecionado. Tente novamente, se o problema persistir contate o suporte!",
-    showingFormFilterBy: "Exibindo apontamentos {0}",
-    showingFormFilterByForm: "Exibindo apontamentos filtrados por formulário",
-    sendingCustomForms: "Enviando formulários...",
+    occurrenceInsertError: "Erro ao inserir dados da ocorrência. Tente novamente, se o problema persistir contate o suporte!",
+    occurrenceInsertDetailError: "Erro ao inserir imagens da ocorrência. Tente novamente, se o problema persistir contate o suporte!",
+    sendingCustomForms: "Enviando ocorrência...",
+    minLength: "Por favor informe ao menos {0} caracteres no campo {1}",
 
     // Login
     doingLogin: "Relizando login...",
@@ -53,6 +46,6 @@
     noPictureToShow: "Não há imagem a exibir.",
 
     // GPS
-    failToAccessGPS: "Falha ao acessar Componente GPS. Tente novamente, se o problema persistir contate o suporte!",
+    failToAccessGPS: "Não conseguimos definir sua localização, por favor tente novamente!",
     excludePicture: "Deseja excluir esta imagem?",
 };

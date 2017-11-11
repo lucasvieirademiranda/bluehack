@@ -150,66 +150,14 @@ GDFtemp = {
         } else {
             self.Uuid = GDF.getUuid();
 
-            debugger;
-
-            var fail = function () {
-                // GDF.util.toast(GDF.strings.failToAccessGPS);
-            };
-
-            var getPosition = function () {
-                GDF.blockApp(GDF.strings.searchingAddress);
-                GDF.gps.getCoords(getAddress, fail, { timeout: 30000, tryAgain: true, autoBlockUnblock: false });
-            };
-
-            var getAddress = function (coords) {
-                var position = { "position": { "lat": coords.latitude, "lng": coords.longitude } };
-
-                plugin.google.maps.Geocoder.geocode(position, function (results) {
-                    GDF.unblockApp();
-                    if (results.length > 0) {
-                        GDF.settings.occurrenceLocal = results[0];
-
-                        // Carrega dados do endereço recuperado no mapa
-                        var local = results[0];
-                        if (local) {
-                            $("#cform2").val(local.postalCode);
-                            $("#cform3").val(local.adminArea);
-                            $("#cform4").val(local.locality);
-                            $("#cform5").val(local.thoroughfare + ", " + local.subThoroughfare + " - " + local.subLocality);
-                        }                        ;
-                    } else {
-                        GDF.messageBox({
-                            text: GDF.strings.addressNotFound,
-                            yes: function () {
-                                // Informa que não foi possível encontrar o endereço e se deseja  buscar novamente
-                                getPosition();
-                            },
-                            no: function () {
-                                // GDF.util.toast(GDF.strings.startOccurrenceWithoutAddress, undefined, startOccurrence);
-                            },
-                            ok: false
-                        });
-                    }
-                })
-            };
-
-            // Limpa endereço anterior
-            GDF.settings.occurrenceLocal = null;
-
-            // Questiona ao usuário seu local
-            GDF.messageBox({
-                title: GDF.strings.startingOccurrence,
-                text: GDF.strings.startOccurrence,
-                yes: function () {
-                    // Recuperar posicionamento GPS
-                    getPosition();
-                },
-                no: function () {
-                    // GDF.util.toast(GDF.strings.startOccurrenceWithoutAddress, undefined, startOccurrence);
-                },
-                ok: false,
-                bigger: true
-            });
+            // Carrega dados do endereço recuperado no mapa
+            var local = GDF.settings.occurrenceLocal;
+            if (local["adminArea"]) {
+                $("#cform2").val(local.postalCode);
+                $("#cform3").val(local.adminArea);
+                $("#cform4").val(local.locality);
+                $("#cform5").val(local.thoroughfare + ", " + local.subThoroughfare + " - " + local.subLocality);
+            };         
         }
     },
 
@@ -290,13 +238,45 @@ GDFtemp = {
                         break;
                     case GDF.enums.ComponentType.SingleChoice:
                     case GDF.enums.ComponentType.SingleSelect:
+                        var query = "";
+                        var param = [];
+                        var initLookup = null;
+                        switch (Number(elem.Id)) {
+                            case 8:
+                                query = "SELECT Id AS Codcform8, Name AS Dsccform8 FROM OccurenceType";
+                                param = [];
+                                break;
+                            case 9:
+                                query = "SELECT Id AS Codcform9, Name AS Dsccform9 FROM OccurenceType";
+                                param = [self.Codcform8];
+                                initLookup = function () {
+                                    var self = GDF.controllers.newocurrence;
+                                    if (!self.Codcform8) {
+                                        GDF.messageBox(GDF.strings.selectBefore.format("Tipo"));
+                                        return false;
+                                    }
+                                    self.paramsCform9 = [self.Codcform8]
+                                    return true;
+                                }
+                                break;
+                            case 10:
+                                query = "SELECT Id AS Codcform10, Name AS Dsccform10 FROM OccurenceType";
+                                param = [];
+                                break;
+                            default:
+                        }
+
                         var lookup = GDF.templates.lookupField(self, elem);
 
                         html = lookup.html;
 
-                        self[lookup.queryName] = lookup.query;
-                        self[lookup.paramsName] = lookup.params;
+                        self[lookup.queryName] = query;
+                        self[lookup.paramsName] = param;
                         self[lookup.callbackName] = lookup.callback;
+
+                        if (initLookup) {
+                            self[lookup.initLookUpName] = initLookup;
+                        }
 
                         break;
                     case GDF.enums.ComponentType.MultipleChoice:
@@ -342,85 +322,6 @@ GDFtemp = {
         }
 
         configView();
-    },
-
-    loadData: function () {
-        var self = GDF.controllers.newocurrence;
-
-        var fail = function () {
-            GDF.messageBox({
-                text: GDF.strings.customFormDataNotFound,
-                ok: function () {
-                    GDF.kendoMobileApp.navigate("#:back");
-                },
-                yes: false,
-                no: false
-            });
-        };
-
-        var loadImages = function () {
-            var queryImages = "SELECT * FROM CustomformPhotos WHERE FormUuid = ?";
-            var paramImages = [self.Uuid];
-            GDF.sql.query(queryImages, paramImages, function (data) {
-                if (data.length > 0) {
-                    self.Images = data.map(function (item) {
-                        return {
-                            id: item.Id,
-                            src: item.Src,
-                            thumbnail: item.Thumbnail
-                        }
-                    });
-                    GDF.util.imageViewer().init(self, self.Sync == GDF.enums.RecordStatus.Syncronized);
-                    GDF.util.imageViewer().appendMany(self.Images);
-                    $("#CustomFormPictures").val(GDF.strings.pictureCount.format(data.length, self.maxsphoto));
-                }
-            });
-        };
-
-        var loadContent = function () {
-            var query = "SELECT c.Content, f.HasPhoto, c.Uuid FROM Customforms c INNER JOIN Forms f ON c.FormId == f.Id WHERE c.Id = ?";
-            var param = [self.Id];
-            GDF.sql.query(query, param, function (data) {
-                if (data.length == 0) {
-                    fail()
-                    return;
-                };
-
-                // Recupera uuid
-                self.Uuid = data[0].Uuid;
-
-                // Configura dados
-                var content = eval(data[0].Content);
-
-                $.each(content, function (idx, elem) {
-                    // Tratamento dos campos de seleção (lookup)
-                    if (elem.TYPE == GDF.enums.ComponentType.SingleChoice ||
-                        elem.TYPE == GDF.enums.ComponentType.SingleSelect ||
-                        elem.TYPE == GDF.enums.ComponentType.MultipleChoice) {
-                        self[GDF.templates.getLookupMethod(elem.FIELD_ID)](elem.VALUE);
-                    }
-                    // Tratamento campo data
-                    else if (elem.TYPE == GDF.enums.ComponentType.Date ||
-                        elem.TYPE == GDF.enums.ComponentType.DateTime ||
-                        elem.TYPE == GDF.enums.ComponentType.Time) {
-                        var date = GDF.util.configDateTimeValue(elem.VALUE, elem.TYPE, kendo.culture().name);
-                        $("#" + GDF.templates.getId(elem.FIELD_ID)).mobiscroll("setDate", date, true);
-                        $("#" + GDF.templates.getId(elem.FIELD_ID)).val(elem.VALUE);
-                    }
-                    // Demais campos
-                    else {
-                        $("#" + GDF.templates.getId(elem.FIELD_ID)).val(elem.VALUE);
-                    }
-                });
-
-                // Carrega imagens
-                if (eval(data[0].HasPhoto)) {
-                    loadImages();
-                }
-            }, fail);
-        };
-
-        loadContent();
     },
 
     addPicture: function (e) {
@@ -502,7 +403,16 @@ GDFtemp = {
         });
 
         var valid = GDF.util.validateRequiredField();
-        return valid;
+
+        return valid && function () {
+            // Valida se foi informado uma descrição de ao menos 60 char
+            if (self["cform11"].length < 60) {
+                GDF.util.toast(GDF.strings.minLength.format("60","Descri&ccedil;&atilde;o"));
+                return false;
+            } else {
+                return true;
+            }
+        }();
     },
 
     save: function (callbackSuccess, callbackFailure) {
@@ -517,6 +427,7 @@ GDFtemp = {
 
             callbackSuccess();
 
+            // TODO - ENVIAR OCORRÊNCIA ANTES DE VOLTAR PARA A TELA ANTERIOR
             // Voltar pela tela anterior
             GDF.kendoMobileApp.navigate("#:back");
         };
@@ -524,180 +435,72 @@ GDFtemp = {
         var failure = function (msg) {
             // Quando ocorrer erro antes de finalizar o processo de gravação, remove possíveis inserções
             var deleteQueries = [];
-            deleteQueries.push("DELETE FROM CustomformPhotos WHERE FormUuid = ?");
-            deleteQueries.push("DELETE FROM CustomformData WHERE FormUuid = ?");
-            deleteQueries.push("DELETE FROM Customforms WHERE Uuid = ?");
+            deleteQueries.push("DELETE FROM OccurrenceImage WHERE UuidOccurrence = ?");
+            deleteQueries.push("DELETE FROM Occurrence WHERE Uuid = ?");
 
-            var paramsDeleteQueries = [self.Uuid, self.Uuid, self.Uuid];
+            var paramsDeleteQueries = [self.Uuid, self.Uuid];
 
             GDF.sql.queries(deleteQueries, paramsDeleteQueries, function () { }, function () { });
 
             // Exibe msg de erro
-            msg = msg || GDF.strings.customFormInsertError;
+            msg = msg || GDF.strings.occurrenceInsertError;
             callbackFailure(GDF.messageBox(msg));
         };
 
-        var updateDetail = function () {
-            var newImages = self.Images.filter(function (item) {
-                return item.id == -1;
-            });
-
-            var executeInsert = function () {
-                insertDetail(newImages);
-            };
-
-            var executeDelete = function () {
-                var successDelete = function () {
-                    if (newImages.length > 0) {
-                        executeInsert();
-                    } else {
-                        finishSaving();
-                    }
-                };
-
-                // Pega array de ids
-                var removedIds = self.removedImages.map(function (item) {
-                    return item.id;
-                });
-
-                var deleteQuery = "DELETE FROM CustomformPhotos WHERE Id IN (" + removedIds.toString() + ") AND FormUuid = ?";
-                var deleteParams = [self.Uuid];
-
-                GDF.sql.query(deleteQuery, deleteParams, successDelete, function () {
-                    failure(GDF.strings.customFormInsertDetailError);
-                });
-            };
-
-            // Se removeu imagens
-            if (self.removedImages.length > 0) {
-                executeDelete();
-            } else {
-                if (newImages.length > 0) {
-                    executeInsert();
-                } else {
-                    success();
-                }
-            }
-        };
-
-        var insertDetail = function (images) {
+        var saveDetails = function () {
+            var images = self.Images
             if (!$.isArray(images) || images.length == 0) {
                 success();
                 return;
             }
 
-            var columns = ["FormUuid", "Src", "Thumbnail"];
+            var columns = ["UuidOccurrence", "Src", "Thumbnail"];
             var values = [];
 
             $.each(images, function (idx, item) {
                 values.push([self.Uuid, item.src, item.thumbnail]);
             });
 
-            GDF.sql.multipleInsert("CustomformPhotos", columns, values, false, success, function () {
-                failure(GDF.strings.customFormInsertDetailError);
+            GDF.sql.multipleInsert("OccurrenceImage", columns, values, false, success, function () {
+                failure(GDF.strings.occurrenceDetailError);
             });
-        };
-
-        var saveDetails = function () {
-            if ($.isNumeric(self.Id)) {
-                updateDetail();
-            } else {
-                insertDetail(self.Images);
-            }
-        };
-
-        var saveData = function () {
-            var insertData = function () {
-                var table = "CustomformData";
-                var columns = ["FormUuid", "FieldId", "ListId", "ComponentType", "Value"];
-                var values = [];
-
-                $.each(self.fields, function (idx, item) {
-                    var elem = $("#" + item);
-                    var id = item.replace("cform", "");
-                    var model = elem.data("model");
-                    var type = Number(elem.data("type"));
-
-                    if (type === GDF.enums.ComponentType.SingleChoice ||
-                        type === GDF.enums.ComponentType.SingleSelect ||
-                        type === GDF.enums.ComponentType.MultipleChoice) {
-                        // Insere um registro para cada item da lista selecionado
-                        if ($.isArray(self[model])) {
-                            $.each(self[model], function (i, s) {
-                                values.push([self.Uuid, id, s["ListId"], type, s["CodCform" + id].toString()]);
-                            });
-                        } else {
-                            var s = self[model];
-                            values.push([self.Uuid, id, s["ListId"], type, s["CodCform" + id].toString()]);
-                        }
-                    } else {
-                        values.push([self.Uuid, id, null, type, self[model]]);
-                    }
-                });
-
-                GDF.sql.multipleInsert(table, columns, values, false, saveDetails, failure);
-            };
-
-            var queryDeleteOldData = "DELETE FROM CustomformData WHERE FormUuid = ?";
-            var paramDeleteOldData = [self.Uuid];
-            GDF.sql.query(queryDeleteOldData, paramDeleteOldData, insertData, failure);
-        };
-
-        var updateHeader = function () {
-            var updateQuery = "";
-            updateQuery += " UPDATE Customforms ";
-            updateQuery += "    SET Content = ? ";
-            updateQuery += "  WHERE Id = ? ";
-
-            var updateParams = [JSON.stringify(content), self.Id];
-
-            GDF.sql.query(updateQuery, updateParams, saveData, failure);
         };
 
         var saveHeader = function () {
             var insertQuery = "";
-            insertQuery += " INSERT INTO Customforms ";
-            insertQuery += "        (Uuid, Date, UserId, FormId, IsGps,";
-            insertQuery += "         Latitude, Longitude, Content, Source, Status) ";
+            insertQuery += " INSERT INTO Occurrence ";
+            insertQuery += "        (Uuid, OccurenceTypeId, OccurenceSubtypeId, OwnerUserId, Title, ";
+            insertQuery += "         Description, CreateDate, Latitude, Longitude, Cep, ";
+            insertQuery += "         State, City, Address1, Address2, Criticality, ";
+            insertQuery += "         Status, InternalStatus) ";
             insertQuery += " VALUES (?,?,?,?,?, ";
-            insertQuery += "         ?,?,?,?,?) ";
+            insertQuery += "         ?,?,?,?,?, ";
+            insertQuery += "         ?,?,?,?,?, ";
+            insertQuery += "         ?,?) ";
 
             var insertParams = [];
             insertParams.push(self.Uuid);
-            insertParams.push(new Date().getTime());
-            insertParams.push(GDF.settings.userId);
-            insertParams.push(self.FormId);
-            insertParams.push(1);
-            insertParams.push(self.Latitude);
-            insertParams.push(self.Longitude);
-            insertParams.push(JSON.stringify(content));
-            insertParams.push(2);
-            insertParams.push(1);
+            insertParams.push(self.cform8 || 1);
+            insertParams.push(self.cform9 || 1);
+            insertParams.push(GDF.settings.userdata.Id);
+            insertParams.push(self.cform7);
+            insertParams.push(self.cform11);
+            insertParams.push(self.cform1);
+            insertParams.push(GDF.settings.occurrenceLocal.lat);
+            insertParams.push(GDF.settings.occurrenceLocal.lng);
+            insertParams.push(self.cform2);
+            insertParams.push(self.cform3);
+            insertParams.push(self.cform4);
+            insertParams.push(self.cform5);
+            insertParams.push(self.cform6 || 1);
+            insertParams.push(self.cform10 || 1);
+            insertParams.push(GDF.enums.OccurrenceStatus.Open);
+            insertParams.push(GDF.enums.RecordStatus.Open);
 
-            GDF.sql.query(insertQuery, insertParams, saveData, failure);
+            GDF.sql.query(insertQuery, insertParams, saveDetails, failure);
         };
 
-        var doSave = function () {
-            if ($.isNumeric(self.Id)) {
-                updateHeader();
-            } else {
-                saveHeader();
-            }
-        };
-
-        // Configura Content
-        // FIELD_ID - Identificado do campo
-        // VALUE - Valor informado para o campo
-        var content = [];
-        $.each(self.fields, function (idx, item) {
-            var elem = $("#" + item);
-            var id = item.replace("cform", "");
-            var model = elem.data("model");
-            var type = elem.data("type")
-            content.push({ "FIELD_ID": id, "VALUE": self[model], "TYPE": type })
-        });
-
-        doSave();
+        saveHeader();
     },
 
     onClickHome: function (e) {

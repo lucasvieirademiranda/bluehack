@@ -148,9 +148,3 @@ header .km-button {
     margin-left: -12px !important;
     color: #900;
 }
-
-#messagebox div[data-role="button"] {
-    width: 60px;
-    height: 60px;
-    font-size: 1.4em;
-}
