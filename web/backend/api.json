@@ -5,6 +5,12 @@
 		"MORGAN": {
 			"TYPE": "tiny",
 			"FILE": "./temp/request.log"
+		},
+		"CONNECTION_CONFIG": {
+			"user": "MFY_COLLECTOR",
+			"password": "mfyHACK",
+			"server": "gatec-msdb-02.cloudapp.net",
+			"database": "MFY_COLLECTOR"
 		}
 	},
 	"DEV": {
@@ -12,6 +18,12 @@
 		"MORGAN": {
 			"TYPE": "tiny",
 			"FILE": "./temp/request.log"
+		},
+		"CONNECTION_CONFIG": {
+			"user": "MFY_COLLECTOR",
+			"password": "mfyHACK",
+			"server": "gatec-msdb-02.cloudapp.net",
+			"database": "MFY_COLLECTOR"
 		}
 	}
 }

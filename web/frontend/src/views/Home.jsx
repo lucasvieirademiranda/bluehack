@@ -59,24 +59,43 @@ export default class Home extends Component {
     };
 
     onToggleSidebar = (event) => {
-        
+
         const {
+            occurrenceIndex,
             showSidebar
         } = this.state;
 
-        this.setState({ showSidebar: !showSidebar });
+        let newOccurrences = this.setShowInfo(occurrenceIndex, false);
+
+        this.setState({ 
+            showSidebar: !showSidebar,
+        });
 
     };
 
     onMarkerClick = (occurrenceIndex, showInfo) => {
 
-        this.setShowInfo(occurrenceIndex, !showInfo);
+        showInfo = !showInfo;
+
+        let newOccurrences = this.setShowInfo(occurrenceIndex, showInfo);
+
+        this.setState({
+            occurrences: newOccurrences,
+            occurrenceIndex: showInfo ? occurrenceIndex : null
+        });
 
     };
     
     onInfoWindowClose = (occurrenceIndex) => {
 
-        this.setShowInfo(occurrenceIndex, false);
+        let showInfo = false;
+
+        let newOccurrences = this.setShowInfo(occurrenceIndex, showInfo);
+
+        this.setState({
+            occurrences: newOccurrences,
+            occurrenceIndex: null
+        });
 
     };
 
@@ -95,10 +114,8 @@ export default class Home extends Component {
             }
         }
 
-        this.setState({ 
-            occurrences: newOccurrences,
-            occurrenceIndex: showInfo ? occurrenceIndex : null
-        });
+        return newOccurrences;
+
     }
 
     render() {
