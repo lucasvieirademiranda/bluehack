@@ -28,7 +28,6 @@
     doingLogin: "Relizando login...",
     failToRetriveUserId: "Falha ao recuperar dados do usuário. Tente novamente, se o problema persistir contate o suporte!",
     failToRetriveUserIdRes: "recuperar dados do usuário logado!",
-    failUnauthorized: "Usuário sem permissão de acesso ao MapfyApp!",
 
     // Sincronia
     failToSincronize: "Falha ao sincronizar {0} ({1}). Realize uma nova sincronia, se o problema persistir contate o suporte!",

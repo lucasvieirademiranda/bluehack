@@ -9,7 +9,7 @@ GDF.settings.add({
 
     // Service URI
     apiServerUrlDev: "http://localhost:54904/",
-    apiServerUrlProd: "http://tst-mapfy-api.gatec.com.br/",
+    apiServerUrlProd: "http://tst.com.br/",
 
     // Informacoes do login
     userdata: null,

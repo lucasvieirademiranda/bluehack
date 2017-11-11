@@ -5,7 +5,6 @@
     "cordova-plugin-geolocation",
     "cordova-plugin-globalization",
     "cordova-plugin-network-information",
-    "cordova-plugin-splashscreen",
     "cordova-plugin-whitelist"
   ]
 }

@@ -514,7 +514,6 @@ GDF.util.getDetailfields = function () {
     return fields;
 };
 
-
 GDF.util.goToOnMap = function (target) {
     var pos = {
         'tilt': 60,
