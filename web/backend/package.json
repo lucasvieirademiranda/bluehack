@@ -11,7 +11,8 @@
     "express": "^4.15.4",
     "express-validator": "^4.1.1",
     "helmet": "^3.8.1",
-    "morgan": "^1.8.2"
+    "morgan": "^1.8.2",
+    "mssql": "^4.1.0"
   },
   "devDependencies": {}
 }

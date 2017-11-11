@@ -9,10 +9,16 @@ const https = require('https');
 const loader = require('./api/loader.js');
 const helmet = require('helmet');
 const fs = require('fs');
+const sql = require('mssql');
+
 
 // Definindo opções de ambiente
 process.env = CONF;
 const conf = CONF[process.env.ENV];
+
+global.conf = conf;
+global.pool = new sql.ConnectionPool(conf.CONNECTION_CONFIG);
+
 var accessLogStream = fs.createWriteStream(conf.MORGAN.FILE, {flags: 'a'})
 
 var api = express();
@@ -60,7 +66,5 @@ switch (process.env.ENV)
 		break;
 
 	default:
-	break;
+		break;
 }
-
-
