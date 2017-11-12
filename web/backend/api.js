@@ -13,13 +13,15 @@ const fs = require('fs');
 const sql = require('mssql');
 
 // Definindo opções de ambiente
-process.env = CONF;
-const conf = CONF[process.env.ENV];
+//process.env = CONF;
+//const conf = CONF[process.env.ENV];
+
+const conf = CONF["DEV"];
 
 global.conf = conf;
 global.pool = () => { return new sql.ConnectionPool(conf.CONNECTION_CONFIG) };
 
-var accessLogStream = fs.createWriteStream(conf.MORGAN.FILE, {flags: 'a'})
+//var accessLogStream = fs.createWriteStream(conf.MORGAN.FILE, {flags: 'a'})
 
 var api = express();
 
@@ -37,14 +39,14 @@ api.use(bodyParser.urlencoded( { limit: '50mb', extended: true } ));
 
 // Adiciona validadores padrões: https://github.com/ctavan/express-validator
 api.use(expressValidator([]));
-api.use(morgan(conf.MORGAN.TYPE, {stream: accessLogStream}));
+//api.use(morgan(conf.MORGAN.TYPE, {stream: accessLogStream}));
 
 api.use('/public',express.static('public'));
 
 loader.start(api);
 
 // Criando servidor de acordo com ambiente configurado.
-switch (process.env.ENV) 
+switch (CONF.ENV) 
 {
 	case "PRD":
 
@@ -67,7 +69,7 @@ switch (process.env.ENV)
 
 	case "DEV":
 		
-		http.createServer(api).listen(80);
+		http.createServer(api).listen(process.env.PORT || 3000);
 		console.log("Server is running in DEV mode.");
 
 		break;

@@ -1,6 +1,6 @@
 export function getUrl(url)
 {
-    const baseUrl = "http://localhost:80";
+    const baseUrl = "http://localhost:3000";
 
     let currentUrl = baseUrl;
 

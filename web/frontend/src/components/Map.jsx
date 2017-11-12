@@ -60,8 +60,6 @@ const Map = compose(
          occurrences.length > 0 && 
          occurrences.map((occurrence, index) => {
            
-            debugger;
-
            return(
                 <Marker key={index}
                         position={{ lat: occurrence.Latitude, lng: occurrence.Longitude}}
