@@ -139,7 +139,7 @@
     loadingFilters: "Carregando filtros...",
     startSync: "Iniciando a sincronia dos dados...",
     preparingDataToSend: "Preparando dados para envio...",
-    syncing: "Sincronizando dados...",
+    syncing: "Atualizando informações...",
     cleaningDatabase: "Limpando dados enviados...",
     insertingDatabase: "Inserindo novos dados...",
     finishSync: "Finalizando sincronia. Por favor aguarde...",

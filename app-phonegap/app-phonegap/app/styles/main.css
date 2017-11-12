@@ -192,50 +192,6 @@ ul#list-customformmenu li {
 /* FORM */
 /* CUSTOM FORMS */
 
-/* HELP CSS */
-#filterhelp-list{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#filterhelp-list li {
-    position: relative;
-    min-height: 85pt;
-    padding: 10pt;
-    margin-bottom: 10px;
-    background: #DFDFDF;
-}
-
-.help-icon {
-    display: block;
-    position: absolute;
-    top: 10pt;
-    left: 10pt;
-    width: 70pt;
-    height: 70pt;
-    border: 1px solid #EFEFEF;    
-}
-
-.help-icon:before {
-    display: block;
-    line-height: 70pt;
-    text-align: center;
-    font-size: 36pt;
-}
-
-.help-tit {
-    font-size: 14pt;
-    font-weight: 700;
-}
-
-.help-tit,
-.help-txt {
-    display: block;
-    padding-left: 80pt;
-    width: 100%;
-}
-/* HELP CSS */
 
 /* IMAGE MODAL */
 .image-container img {

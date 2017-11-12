@@ -53,11 +53,17 @@ GDFtemp = {
 
         var defaultPos = function () {
             GDF.util.goToOnMap({ lat: -23.5761473, lng: -46.6463977 });
-        }
+        };
+
+        getPosition();
 
         // Plota marcações das ocorrências
         GDF.sql.query("SELECT Latitude, Longitude, Title, Status FROM Occurrence", [], function (data) {
-            $.each(data, function (ìdx, item) {
+            if (data.length === 0) {
+                return;
+            }
+
+            $.each(data, function (idx, item) {
                 GDF.settings.addMarker({
                     'position': { "lat": Number(item.Latitude), "lng": Number(item.Longitude) },
                     'title': item.Title,
@@ -65,9 +71,8 @@ GDFtemp = {
                 }, function (marker) {
                     marker.showInfoWindow();
                 });
-            })
+            });
         });
-
     },
 
     onClickOccurrence: function (e) {

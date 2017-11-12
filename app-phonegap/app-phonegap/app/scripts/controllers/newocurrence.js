@@ -426,9 +426,12 @@ GDFtemp = {
 
             callbackSuccess();
 
-            // TODO - ENVIAR OCORRÊNCIA ANTES DE VOLTAR PARA A TELA ANTERIOR
             // Voltar pela tela anterior
-            GDF.kendoMobileApp.navigate("#:back");
+            GDF.util.uploadOccurence(false, function() {
+                setTimeout(function() {
+                    GDF.kendoMobileApp.navigate("#:back");
+                }, 2400)
+            })
         };
 
         var failure = function (msg) {

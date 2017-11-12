@@ -48,18 +48,8 @@ GDF.util.syncronize = function (_uri, _type, _data, success, error) {
     };
 
     var fail = function (result, textStatus) {
-        var msg = GDF.lang.connectionErrorMessage(result.status, textStatus);
-        if (msg === GDF.strings.generalRequestError) {
-            msg = result.statusText;
-        }
-
-        var response = result.responseText ? JSON.parse(result.responseText) : null;
-        if (response && response.Message) {
-            msg += " (" + response.Message + ") ";
-        }
-
         if (typeof error === "function") {
-            error(msg);
+            error(result);
         } else {
             GDF.unblockApp();
             GDF.messageBox(msg);
@@ -144,7 +134,7 @@ GDF.util.downloadData = function (success, fail) {
 
             GDF.sql.multipleInsert(table, columns, values, true, checkSincronize, checkSincronize);
         }, function (error) {
-            errors.push(GDF.strings.failToSincronize.format(table, error));
+            errors.push(GDF.strings.failToSincronize);
             checkSincronize();
         });
     };
@@ -154,8 +144,130 @@ GDF.util.downloadData = function (success, fail) {
     });
 }
 
-GDF.util.uploadOccurence = function () {
-    GDF.blockApp(GDF.strings.syncing);   
+GDF.util.uploadOccurence = function (nomessage, success, fail) {
+    GDF.blockApp(GDF.strings.sendingOccurrence);
+
+    var finishedUpload = function (fail, empty) {
+        GDF.unblockApp();
+
+        // Verifica se houve erro no processo de sincronia
+        if (typeof fail === "string" || (Array.isArray(fail) && fail.length > 0)) {
+            GDF.util.toast(GDF.strings.failToSend);
+
+            if (typeof fail === "function") {
+                fail();
+            }
+        } else {
+            if (!empty && !nomessage) {
+                GDF.util.toast(GDF.strings.successToSend);
+            }
+
+            if (typeof success === "function") {
+                success();
+            }
+        }
+    };
+
+    var uploadFail = function (error) {
+        finishedUpload(error);
+    };
+
+    var doUpload = function () {
+        // Query para recuperar ocorrências
+        var query = "";
+        query += "SELECT Uuid, ";
+        query += "       OccurenceTypeId, ";
+        query += "       OccurenceSubtypeId, ";
+        query += "       OwnerUserId, ";
+        query += "       Title, ";
+        query += "       Description, ";
+        query += "       CreateDate, ";
+        query += "       Latitude, ";
+        query += "       Longitude, ";
+        query += "       Cep, ";
+        query += "       State, ";
+        query += "       City, ";
+        query += "       Address1, ";
+        query += "       Address2, ";
+        query += "       Criticality ";
+        query += "  FROM Occurrence ";
+        query += " WHERE InternalStatus = ? ";
+
+        var queryparam = [GDF.enums.RecordStatus.Open];
+
+        // Query para recuperar imagens
+        var queryImage = "SELECT Src FROM OccurrenceImage WHERE UuidOccurrence = ?";
+
+        // Recupera dados das ocorrências que devem ser enviadas
+        GDF.sql.query(query, queryparam, function (data) {
+            // Verifica se há dados há enviar, se não houver vai para o próximo passo
+            if (data.length === 0) {
+                finishedUpload(true);
+                return;
+            }
+
+            // Sucesso após envio dos dados
+            var uploadSuccess = function (result) {
+                var updateQueries = [];
+                var updateParams = [];
+
+                $.each(data, function (idx, elem) {
+                    updateQueries.push("UPDATE Occurrence SET InternalStatus = ? WHERE Uuid = ?");
+                    updateParams.push([GDF.enums.RecordStatus.Syncronized, Number(elem.Uuid)]);
+                });
+
+                GDF.sql.queries(updateQueries, updateParams, finishedUpload);
+            };
+
+            // Função para envio dos dados
+            var count = 1;
+            var sendData = function (idx, images) {
+                // Configura imagens a serem enviadas
+                data[idx].Images = [];
+                if (images.length > 0) {
+                    data[idx].Images = images.map(function (x) {
+                        return x.Src;
+                    });
+                }
+
+                // Só continua processo de envio quando todas imagens forem carregadas ou seja, count for igual numero total de ocorrências
+                if (count < data.length) {
+                    count++;
+                    return;
+                }
+
+                GDF.util.syncronize(GDF.util.getApiAddress("occurrence", "postOccurrences"), GDF.enums.AjaxType.Post, data, uploadSuccess, uploadFail);
+            };
+
+            // Trata dados à serem enviados
+            $.each(data, function (idx, elem) {
+                // Configura campo do tipo data
+                if (typeof elem["CreateDate"] !== "undefined") {
+                    elem["CreateDate"] = new Date(elem["CreateDate"]);
+                    elem["OccurenceTypeId"] = Number(elem["OccurenceTypeId"]);
+                    elem["OccurenceSubtypeId"] = Number(elem["OccurenceSubtypeId"]);
+                    elem["OwnerUserId"] = Number(elem["OwnerUserId"]);
+                    elem["Latitude"] = Number(elem["Latitude"]);
+                    elem["Longitude"] = Number(elem["Longitude"]);
+                    elem["Criticality"] = Number(elem["Criticality"]);                    
+                }
+
+                // Carrega dados de cada lançamento
+                var param = [elem.Uuid];
+                GDF.sql.query(queryImage, param, function (images) {
+                    sendData(idx, images);
+                }, function () {
+                    uploadFail("");
+                    return false;
+                });
+            });
+        }, function () {
+            uploadFail("");
+        });
+    };
+
+    // Inicia processo de envio dos formulários
+    doUpload();
 }
 
 GDF.util.imageViewer = function(editMode) {

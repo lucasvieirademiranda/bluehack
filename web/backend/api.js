@@ -30,10 +30,10 @@ api.use(cors());
 //api.use(helmet());
 
 // Faz o parse dos jsons do body: https://github.com/expressjs/body-parser
-api.use(bodyParser.json());
+api.use(bodyParser.json({limit: '50mb'}));
 
 // Parser dos parametros da URL
-api.use(bodyParser.urlencoded( { extended: true } ));
+api.use(bodyParser.urlencoded( { limit: '50mb', extended: true } ));
 
 // Adiciona validadores padrões: https://github.com/ctavan/express-validator
 api.use(expressValidator([]));

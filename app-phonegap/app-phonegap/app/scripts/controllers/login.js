@@ -60,7 +60,10 @@ GDFtemp = {
         var success = function (data) {
             GDF.settings.userdata = data;
             $("#username-value").text(GDF.settings.userdata.Username)
-            GDF.util.downloadData(finish, fail)
+            GDF.util.downloadData(
+                function () {
+                    GDF.util.uploadOccurence(true, finish);
+                }, fail);
         };
 
         //GDF.blockApp(GDF.strings.doingLogin);

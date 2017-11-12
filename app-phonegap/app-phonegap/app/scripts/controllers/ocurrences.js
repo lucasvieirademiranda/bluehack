@@ -49,7 +49,7 @@
         });
 
         this.ds.bind("change", function() {
-            $(".lib-ocurrences").on("click", function () {
+            $(".item-ocurrences").on("click", function () {
                 var uuid = $(this).find("input").val();
                 var dataItem = self.ds.get(uuid);
                 GDF.util.goToOnMap({ "lat": Number(dataItem.Latitude), "lng": Number(dataItem.Longitude) });

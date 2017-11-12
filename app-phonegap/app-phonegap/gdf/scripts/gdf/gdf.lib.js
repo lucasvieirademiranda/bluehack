@@ -2186,7 +2186,6 @@ GDFController.prototype.enableAllInputs = function() {
     });
 };
 
-
 GDF._viewAfterShowSetupTimeout = 0;
 GDF.viewBeforeShow = function(e) {
     GDF.isTransitioningView = true;
@@ -2915,47 +2914,6 @@ GDF.enums.DeviceOs = {
     WindowsPhone: 1,
     Android: 2,
     WindowsMobile: 3
-};
-
-GDF.enums.SyncType = {
-    DownloadOnly: 0,
-    UploadOnly: 1,
-    SyncAll: 2
-};
-
-GDF.enums.SyncStatus = {
-    Stateless: 0,
-    Pending: 1,
-    Complete: 2
-};
-
-GDF.enums.AppStatus = {
-    Stateless: 0,
-    Opened: 1,
-    Closed: 2
-};
-
-GDF.enums.AutomaticD4 = {
-    Automatic: 1,
-    NoAutomatic: 0
-};
-
-GDF.enums.Status = {
-    Opened: 0,
-    Closed: 1,
-    Syncronized: 2
-};
-
-GDF.enums.InitialConfig = {
-    Welcome: 0,
-    SetDesc: 1,
-    SetURI: 2,
-    DeviceInfo: 3,
-};
-
-GDF.enums.FileMode = {
-    Read: 0,
-    Write: 1
 };
 
 GDF.enums.Toast = {
