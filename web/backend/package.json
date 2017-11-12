@@ -5,7 +5,17 @@
   "repository": "",
   "author": "bluehack",
   "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": "6.*"
+  },
+  "scripts": {
+    "start": "node api.js"
+  },
   "dependencies": {
+    "cfenv": "^1.0.x",
+    "cloudant": "^1.7.x",
+    "dotenv": "^4.0.0",
     "async": "^2.5.0",
     "body-parser": "^1.18.1",
     "cors": "^2.8.4",
@@ -13,7 +23,9 @@
     "express-validator": "^4.1.1",
     "helmet": "^3.8.1",
     "morgan": "^1.8.2",
-    "mssql": "^4.1.0"
+    "mssql": "^4.1.0",
+    "uuid": "^3.1.0",
+    "watson-developer-cloud": "^2.42.0"
   },
   "devDependencies": {}
 }

@@ -12,13 +12,21 @@ router.post('/getOccurrences', (request, response) => {
         if (error)
         {
             response.status(500)
-                    .json(error);
+                    .type("application/json")
+                    .json({
+                        Success: false,
+                        Error: error
+                    });
 
             return;
         }
         
-        response.status(400)
-                .json(data);
+        response.status(200)
+                .type("application/json")
+                .json({
+                    Success: true,
+                    Data: data
+                });
 
     });
 

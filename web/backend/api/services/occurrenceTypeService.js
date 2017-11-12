@@ -29,8 +29,6 @@ exports.getOccurrenceTypes = (callback) => {
             });
 
             callback(occurrenceTypes, null);
-
-            request.parent.close();
             
         });
 
