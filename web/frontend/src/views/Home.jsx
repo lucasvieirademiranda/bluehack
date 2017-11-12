@@ -2,27 +2,37 @@ import React, { Component } from 'react';
 
 import { Switch, Route } from 'react-router-dom';
 
+import { fetch } from 'ui-stack/request';
+import { getUrl } from '../util/url';
+
 import { Sidebar } from 'primereact/components/sidebar/Sidebar';
 
 import Map from '../components/Map';
 import Filter from '../components/Filter';
+import WatsonChat from '../components/WatsonChat';
 
 import styles from "./Home.module.scss";
+
+import watson from '../images/watson.png';
 
 export default class Home extends Component {
 
     state = {
         occurrenceIndex: null,
-        occurrences: [{ latitude: -23.5798663, longitude: -46.6512633, showInfo: false }],
-        showSidebar: false,
+        occurrences: [],
+        loading: false,
+        error: false,
+        showFilter: false,
+        showWatson: true,
         position: null,
+        recenter: false,
         positionError: false,
         geolocationError: false
     }
 
     onRecenterClick = (event) => {
 
-        this.setState({ position: null });
+        this.setState({ recenter: true });
 
     };
 
@@ -58,17 +68,17 @@ export default class Home extends Component {
 
     };
 
-    onToggleSidebar = (event) => {
+    onToggleFilter = (event) => {
 
         const {
             occurrenceIndex,
-            showSidebar
+            showFilter
         } = this.state;
 
         let newOccurrences = this.setShowInfo(occurrenceIndex, false);
 
         this.setState({ 
-            showSidebar: !showSidebar,
+            showFilter: !showFilter,
         });
 
     };
@@ -99,6 +109,75 @@ export default class Home extends Component {
 
     };
 
+    onFilter = (parameters) => {
+
+        let url = getUrl("/occurrence/getOccurrences");
+
+        let success = (response) => {
+
+            debugger;
+
+            let data = response.body;
+
+            if (data.Success)
+            {
+                this.setState({
+                    occurrenceIndex: null,
+                    occurrences: data.Data,
+                    loading: false,
+                    error: false,
+                    showFilter: false
+                });
+            }
+            else
+            {
+                this.setState({
+                    occurrenceIndex: null,
+                    occurrences: [],
+                    loading: false,
+                    error: true,
+                    showFilter: false
+                });
+            }
+
+        };
+
+        let error = (error) => {
+
+            this.setState({
+                occurrenceIndex: null,
+                occurrences: [],
+                loading: false,
+                error: true,
+                showFilter: false
+            });
+
+        };
+
+        let request = fetch({ method: "post", url: url, query: null, data: parameters});
+
+        request.then(success)
+               .catch(error);
+
+        this.setState({
+            occurrenceIndex: null,
+            occurrences: [],
+            loading: true,
+            error: false
+        });
+
+    }
+
+    onToggleWatson = (event) => {
+
+        const {
+            showWatson
+        } = this.state;
+
+        this.setState({showWatson: !showWatson});
+
+    };
+
     setShowInfo = (occurrenceIndex, showInfo) => {
 
         const { occurrences } = this.state;
@@ -126,13 +205,25 @@ export default class Home extends Component {
                 <div className={styles.main}>
                 
                     <button className={styles.filterButton + " fa fa-list"} 
-                            onClick={this.onToggleSidebar} />
+                            onClick={this.onToggleFilter} />
 
-                    <Sidebar visible={this.state.showSidebar}
+                    <Sidebar visible={this.state.showFilter}
                              position="left"
-                             onHide={(event) => { this.setState({ showSidebar: false }) }}>
+                             onHide={(event) => { this.setState({ showFilter: false }) }}>
                         <div style={{height: "25px"}}></div>
-                        <Filter />
+                        <Filter onClick={this.onFilter} />
+                    </Sidebar>
+
+                    <button className={styles.chatButton} 
+                            onClick={this.onToggleWatson}>
+                        <img src={watson} title="watson chat" />
+                    </button>
+
+                    <Sidebar visible={this.state.showWatson}
+                             position="right"
+                             onHide={(event) => { this.setState({ showWatson: false }) }}>
+                        <div style={{height: "25px"}}></div>
+                        <WatsonChat />
                     </Sidebar>
 
                     <button className={styles.recenterButton + " fa fa-arrows"} 
@@ -143,6 +234,7 @@ export default class Home extends Component {
 
                     <Map occurrences={this.state.occurrences}
                          position={this.state.position}
+                         recenter={this.state.recenter}
                          defaultZoom={17} 
                          defaultCenter={{ lat: -23.5798663, lng: -46.6512633 }}
                          onMarkerClick={this.onMarkerClick}

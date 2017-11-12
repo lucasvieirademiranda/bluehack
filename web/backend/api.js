@@ -39,6 +39,8 @@ api.use(bodyParser.urlencoded( { extended: true } ));
 api.use(expressValidator([]));
 api.use(morgan(conf.MORGAN.TYPE, {stream: accessLogStream}));
 
+api.use('/public',express.static('public'));
+
 loader.start(api);
 
 // Criando servidor de acordo com ambiente configurado.

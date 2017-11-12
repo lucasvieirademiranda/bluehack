@@ -24,32 +24,37 @@ const Map = compose(
     withScriptjs,
     withGoogleMap
   )((props) => {
-      
+
     const {
         occurrences,
         position,
+        recenter,
         defaultZoom,
         defaultCenter,
-        center,
         onMarkerClick,
         onInfoWindowClose,
         ...otherProps
     } = props;
 
-    let currentCenter = defaultCenter;
+    let currentOptions = {
+        center: defaultCenter,
+        zoom: defaultZoom,
+        disableDefaultUI: true,
+        zoomControl: true
+    };
+
+    if(recenter)
+    {
+        currentOptions.center = defaultCenter;
+        currentOptions.zoom = defaultZoom;
+    }
 
     if (position)
-        currentCenter = position;
+        currentOptions.center = position;
 
     return (
 
-        <GoogleMap
-            options={{
-                center: currentCenter,
-                zoom: defaultZoom,
-                disableDefaultUI: true,
-                zoomControl: true
-            }} >
+        <GoogleMap options={currentOptions}>
 
         {occurrences && 
          occurrences.length > 0 && 
@@ -59,7 +64,7 @@ const Map = compose(
 
            return(
                 <Marker key={index}
-                        position={{ lat: occurrence.latitude, lng: occurrence.longitude}}
+                        position={{ lat: occurrence.Latitude, lng: occurrence.Longitude}}
                         onClick={() => onMarkerClick(index, occurrence.showInfo)}>
                     {occurrence.showInfo && <InfoWindow key={index} onCloseClick={() => onInfoWindowClose(index)}>
                         <div>Teste</div>
