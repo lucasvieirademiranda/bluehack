@@ -13,9 +13,9 @@
             query: self.getQuery(),
             queryParams: [],
             queryFilters: [
-                "t.OccurenceTypeName LIKE ?",
-                "s.OccurrenceSubtypeName LIKE ?",
-                "i.InstitutionName LIKE ?",
+                "t.Name LIKE ?",
+                "s.Name LIKE ?",
+                "i.Name LIKE ?",
                 "o.Title LIKE ?",
                 "o.Description LIKE ?"
             ]
@@ -49,9 +49,10 @@
         });
 
         this.ds.bind("change", function() {
-            $(".lib-ocurrences").on("click", function() {
+            $(".lib-ocurrences").on("click", function () {
                 var uuid = $(this).find("input").val();
                 var dataItem = self.ds.get(uuid);
+                GDF.util.goToOnMap({ "lat": Number(dataItem.Latitude), "lng": Number(dataItem.Longitude) });
             });
         });
     },
@@ -103,10 +104,12 @@
         query += "        s.Name AS OccurrenceSubtypeName, ";
         query += "        o.ResponsableUserId AS ResponsableUserId, ";
         query += "        COALESCE(r.Username,'') AS ResponsableUserName, ";
-        query += "        o.InstitutionId AS InstitutionId, ";
+        query += "        COALESCE(o.InstitutionId,'') AS InstitutionId, ";
         query += "        i.Name AS InstitutionName, ";
         query += "        o.Title AS Title, ";
         query += "        o.Description AS Description, ";
+        query += "        o.Latitude AS Latitude, ";
+        query += "        o.Longitude AS Longitude, ";
         query += "        o.Status AS Status ";
         query += "   FROM Occurrence o ";
         query += "  INNER JOIN OccurenceType t ";
@@ -115,7 +118,7 @@
         query += "     ON s.Id = o.OccurenceSubtypeId ";
         query += "   LEFT JOIN User r ";
         query += "     ON r.Id = o.ResponsableUserId ";
-        query += "  INNER JOIN Institution i ";
+        query += "   LEFT JOIN Institution i ";
         query += "     ON i.Id = o.InstitutionId ";
         query += "  ORDER BY o.CreateDate DESC ";
 

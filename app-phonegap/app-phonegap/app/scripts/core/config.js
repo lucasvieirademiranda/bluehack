@@ -8,7 +8,7 @@ GDF.settings.add({
     deviceId: "",
 
     // Service URI
-    apiServerUrlDev: "http://localhost:54904/",
+    apiServerUrlDev: "http://localhost:80/",
     apiServerUrlProd: "http://tst.com.br/",
 
     // Informacoes do login
@@ -21,5 +21,8 @@ GDF.settings.add({
     defaultMessageTime: 2000,
 
     // Informações da ocorrência
-    occurrenceLocal: null
+    occurrenceLocal: null,
+
+    // Referência do mapa
+    map: null,
 });

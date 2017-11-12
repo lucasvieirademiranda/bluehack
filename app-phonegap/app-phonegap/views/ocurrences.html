@@ -3,21 +3,18 @@
 </div>
 
 <script id="list-ocurrences-template" type="text/x-kendo-template">
-    # if(Status == 2) { #
-    <a href="views/newocurrence.html?id=#: Id #&sync=2" class="lib-ocurrences">
+    <a class="lib-ocurrences">
         <span class="list-subdescription" style="color: green">
-    # } else { #
-    <a href="views/newocurrence.html?id=#: Id #" class="lib-ocurrences">
-        <span class="list-subdescription" style="color: darkgoldenrod">
-    # } #
-            <input type="hidden" value="#: Id #" />
-            <strong>#: GDF.strings.date #</strong>: #: FormatedDate # <br />
-            <strong>#: GDF.strings.local #</strong>: #: LocationDsc # <br />
-            <strong>#: GDF.strings.category #</strong>: #: ParentCategoryDsc #<br />
-            <strong>#: GDF.strings.subcategory #</strong>: #: CategoryDsc # <br />
-            <strong>#: GDF.strings.team #</strong>: #: TeamId # - #: TeamDsc # <br />
-            <strong>#: GDF.strings.description # </strong>: #: Description # <br/>
-            <strong>#: GDF.strings.pictures # </strong>: #: Pictures #         
+            <input type="hidden" value="#: Uuid #" />
+            <strong>#: GDF.strings.CreateDate #</strong>: #: CreateDate # <br />
+            <strong>#: GDF.strings.Title #</strong>: #: Title # <br />
+            <strong>#: GDF.strings.OccurenceTypeName #</strong>: #: OccurenceTypeName #<br />
+            <strong>#: GDF.strings.OccurrenceSubtypeName #</strong>: #: OccurrenceSubtypeName #<br />
+            # if(InstitutionName !== "") { #
+                <strong>#: GDF.strings.InstitutionName #</strong>: #: InstitutionName # <br />
+                <strong>#: GDF.strings.ResponsableUserName # </strong>: #: ResponsableUserName # <br />
+            # } #
+            <strong>#: GDF.strings.status # </strong>: #: GDF.util.getStatus(Status) #         
         </span>
     </a>
 </script>

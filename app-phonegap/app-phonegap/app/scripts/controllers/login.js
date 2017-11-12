@@ -58,16 +58,15 @@ GDFtemp = {
         };
 
         var success = function (data) {
-            GDF.settings.userdata = { Username: username, Password: password };
+            GDF.settings.userdata = data;
             $("#username-value").text(GDF.settings.userdata.Username)
             GDF.util.downloadData(finish, fail)
         };
 
         //GDF.blockApp(GDF.strings.doingLogin);
         //GDF.util.Authenticate(username, password, success, fail);
-        GDF.settings.userdata = { Username: username, Password: password, Id: 1 };
-        $("#username-value").text(GDF.settings.userdata.Username)
-        GDF.kendoMobileApp.navigate("views/map.html");
+
+        success({ Username: username, Password: password, Id: 1 });
     },
 
     onClickRegister: function (e) {

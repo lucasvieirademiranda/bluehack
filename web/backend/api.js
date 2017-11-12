@@ -12,7 +12,6 @@ const cors = require('cors');
 const fs = require('fs');
 const sql = require('mssql');
 
-
 // Definindo opções de ambiente
 process.env = CONF;
 const conf = CONF[process.env.ENV];
@@ -25,13 +24,17 @@ var accessLogStream = fs.createWriteStream(conf.MORGAN.FILE, {flags: 'a'})
 var api = express();
 
 api.use(cors());
+
 // Adicionando middlewares
 // Protege contra alguns cabeçalhos maliciosos: https://github.com/helmetjs/helmet
 //api.use(helmet());
+
 // Faz o parse dos jsons do body: https://github.com/expressjs/body-parser
 api.use(bodyParser.json());
+
 // Parser dos parametros da URL
 api.use(bodyParser.urlencoded( { extended: true } ));
+
 // Adiciona validadores padrões: https://github.com/ctavan/express-validator
 api.use(expressValidator([]));
 api.use(morgan(conf.MORGAN.TYPE, {stream: accessLogStream}));

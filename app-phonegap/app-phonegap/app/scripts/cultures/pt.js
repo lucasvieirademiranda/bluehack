@@ -23,6 +23,20 @@
     occurrenceInsertDetailError: "Erro ao inserir imagens da ocorrência. Tente novamente, se o problema persistir contate o suporte!",
     sendingCustomForms: "Enviando ocorrência...",
     minLength: "Por favor informe ao menos {0} caracteres no campo {1}",
+    status: "Situação",
+
+    Title: "Título",
+    CreateDate: "Data de Criação",
+    OccurenceTypeName: "Tipo",
+    OccurrenceSubtypeName: "SubTipo",
+    InstitutionName: "Instituição Responsável",
+    ResponsableUserName: "Usuário Responsável",
+
+    Open: "Aberto",
+    Analysing: "Em Análise",
+    ToAttend: "Para Atendimento",
+    InAttendance: "Em Atendimento",
+    Done: "Concluído",
 
     // Login
     doingLogin: "Relizando login...",

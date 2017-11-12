@@ -1,13 +1,7 @@
 // Include global functions
-GDF.util.getApiAddress = function (path, method) {
+GDF.util.getApiAddress = function (controller, method) {
     var result = GDF.settings.devmode ? GDF.settings.apiServerUrlDev : GDF.settings.apiServerUrlProd;
-
-    result = GDF.handleApiUrl(result, path);
-
-    if (method) {
-        result += "/" + method;
-    }
-
+    result += controller + "/" + method;
     return result;
 };
 
@@ -80,7 +74,7 @@ GDF.util.syncronize = function (_uri, _type, _data, success, error) {
         timeout: GDF.defaultExternalTimeout,
         cache: false,
         success: function (data) {
-            success(data);
+            success(data.Data);
         },
         error: fail, 
         complete: function (result, textStatus) {
@@ -94,27 +88,25 @@ GDF.util.syncronize = function (_uri, _type, _data, success, error) {
 GDF.util.downloadData = function (success, fail) {
     GDF.blockApp(GDF.strings.syncing);
 
-    // Configura parâmetros
-    var param = "userid=" + GDF.settings.userdata.Id;
-
     // Configura array de informações a serem sincronizadas
     var datatosync = [
-        { "Controller": "Institution", "Method": "List", "Params": param, "Table": "Institution", "Fields": ["Id", "Name", "Phone", "Email"] },
-        { "Controller": "OccurenceType", "Method": "List", "Params": param, "Table": "OccurenceType", "Fields": ["Id", "Name"] },
-        { "Controller": "OccurrenceSubtype", "Method": "List", "Params": param, "Table": "OccurrenceSubtype", "Fields": ["Id", "OccurenceTypeId", "Name"] },
-        { "Controller": "SubtypeInstitution", "Method": "List", "Params": param, "Table": "SubtypeInstitution", "Fields": ["Id", "SubtypeId", "InstitutionId"] },
+        { "Controller": "institution", "Method": "getInstitutions", "Params": null, "Table": "Institution", "Fields": ["Id", "Name", "Phone", "Email"] },
+        { "Controller": "occurrenceType", "Method": "getOccurrenceTypes", "Params": null, "Table": "OccurenceType", "Fields": ["Id", "Name"] },
+        { "Controller": "occurrenceSubtype", "Method": "getOccurrenceSubtypes", "Params": null, "Table": "OccurrenceSubtype", "Fields": ["Id", "OccurrenceTypeId", "Name"] },
     ];
 
     // Váriavel de controle de falha ao realizar sincronia
     var errors = [];
 
-    var syncCount = 0;
+    var syncCount = 1;
     var checkSincronize = function () {
         // Seta sincronia referente ao idsync como completada
         syncCount++;
 
         // Verifica se sincroniza foi finalizada
         if (syncCount == datatosync.length) {
+            GDF.unblockApp();
+
             if (errors.length > 0) {
                 fail(errors);
             } else {
@@ -515,6 +507,10 @@ GDF.util.getDetailfields = function () {
 };
 
 GDF.util.goToOnMap = function (target) {
+    if (!GDF.settings.map) {
+        return;
+    }
+
     var pos = {
         'tilt': 60,
         'zoom': 18,
@@ -523,5 +519,26 @@ GDF.util.goToOnMap = function (target) {
 
     pos["target"] = target;
 
-    map.animateCamera(pos);
+    GDF.settings.map.animateCamera(pos);
+}
+
+GDF.util.getStatus = function (status) {
+    switch (Number(status)) {
+        case 1:
+            return GDF.strings.Open;
+            break;
+        case 2:
+            return GDF.strings.Analysing;
+            break;
+        case 3:
+            return GDF.strings.ToAttend;
+            break;
+        case 4:
+            return GDF.strings.InAttendance;
+            break
+        case 5:
+            return GDF.strings.Done;
+            break;;
+        default:
+    }
 }

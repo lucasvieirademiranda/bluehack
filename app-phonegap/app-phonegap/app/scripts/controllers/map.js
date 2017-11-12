@@ -30,8 +30,8 @@ GDFtemp = {
                 }
             };
 
-            var map = plugin.google.maps.Map.getMap(div, mapOptions);
-            map.on(plugin.google.maps.event.MAP_READY, self.onMapReady);
+            GDF.settings.map = plugin.google.maps.Map.getMap(div, mapOptions);
+            GDF.settings.map.on(plugin.google.maps.event.MAP_READY, self.onMapReady);
         } catch (e) {
             self.hasPlugin = false;
         }
@@ -54,6 +54,20 @@ GDFtemp = {
         var defaultPos = function () {
             GDF.util.goToOnMap({ lat: -23.5761473, lng: -46.6463977 });
         }
+
+        // Plota marcações das ocorrências
+        GDF.sql.query("SELECT Latitude, Longitude, Title, Status FROM Occurrence", [], function (data) {
+            $.each(data, function (ìdx, item) {
+                GDF.settings.addMarker({
+                    'position': { "lat": Number(item.Latitude), "lng": Number(item.Longitude) },
+                    'title': item.Title,
+                    'snippet': GDF.util.getStatus(item.Status)
+                }, function (marker) {
+                    marker.showInfoWindow();
+                });
+            })
+        });
+
     },
 
     onClickOccurrence: function (e) {

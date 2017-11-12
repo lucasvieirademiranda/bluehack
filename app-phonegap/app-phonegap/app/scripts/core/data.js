@@ -23,14 +23,13 @@ $data.Entity.extend("OccurenceType", {
 
 $data.Entity.extend("OccurrenceSubtype", {
     Id: { type: "int", key: true },
-    OccurenceTypeId: { type: "int" },
+    OccurrenceTypeId: { type: "int" },
     Name: { type: "string" }
 });
 
-$data.Entity.extend("SubtypeInstitution", {
+$data.Entity.extend("Criticaly", {
     Id: { type: "int", key: true },
-    SubtypeId: { type: "int" },
-    InstitutionId: { type: "int" }
+    Level: { type: "int" },
 });
 
 // Tabelas de movimento
@@ -70,9 +69,9 @@ function Appdata(dbname, mapdbname) {
         Institution: { type: $data.EntitySet, elementType: Institution },
         OccurenceType: { type: $data.EntitySet, elementType: OccurenceType },
         OccurrenceSubtype: { type: $data.EntitySet, elementType: OccurrenceSubtype },
-        SubtypeInstitution: { type: $data.EntitySet, elementType: SubtypeInstitution },
         Occurrence: { type: $data.EntitySet, elementType: Occurrence },
-        OccurrenceImage: { type: $data.EntitySet, elementType: OccurrenceImage }       
+        OccurrenceImage: { type: $data.EntitySet, elementType: OccurrenceImage },
+        Criticaly: { type: $data.EntitySet, elementType: Criticaly }
     };
 };
 

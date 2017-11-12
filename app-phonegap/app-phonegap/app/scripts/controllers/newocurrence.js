@@ -243,24 +243,23 @@ GDFtemp = {
                         var initLookup = null;
                         switch (Number(elem.Id)) {
                             case 8:
-                                query = "SELECT Id AS Codcform8, Name AS Dsccform8 FROM OccurenceType";
+                                query = "SELECT Id AS CodCform8, Name AS DscCform8 FROM OccurenceType";
                                 param = [];
                                 break;
                             case 9:
-                                query = "SELECT Id AS Codcform9, Name AS Dsccform9 FROM OccurenceType";
-                                param = [self.Codcform8];
+                                query = "SELECT Id AS CodCform9, Name AS DscCform9 FROM OccurrenceSubtype WHERE OccurrenceTypeId = ?";
                                 initLookup = function () {
                                     var self = GDF.controllers.newocurrence;
-                                    if (!self.Codcform8) {
+                                    if (!self.cform8) {
                                         GDF.messageBox(GDF.strings.selectBefore.format("Tipo"));
                                         return false;
                                     }
-                                    self.paramsCform9 = [self.Codcform8]
+                                    self.paramsCform9 = [self.cform8.CodCform8]
                                     return true;
                                 }
                                 break;
                             case 10:
-                                query = "SELECT Id AS Codcform10, Name AS Dsccform10 FROM OccurenceType";
+                                query = "SELECT Id AS CodCform10, Level AS DscCform10 FROM Criticaly";
                                 param = [];
                                 break;
                             default:
@@ -480,8 +479,8 @@ GDFtemp = {
 
             var insertParams = [];
             insertParams.push(self.Uuid);
-            insertParams.push(self.cform8 || 1);
-            insertParams.push(self.cform9 || 1);
+            insertParams.push(self.cform8.CodCform8 || 1);
+            insertParams.push(self.cform9.CodCform9 || 1);
             insertParams.push(GDF.settings.userdata.Id);
             insertParams.push(self.cform7);
             insertParams.push(self.cform11);
@@ -492,8 +491,8 @@ GDFtemp = {
             insertParams.push(self.cform3);
             insertParams.push(self.cform4);
             insertParams.push(self.cform5);
-            insertParams.push(self.cform6 || 1);
-            insertParams.push(self.cform10 || 1);
+            insertParams.push(self.cform6);
+            insertParams.push(self.cform10.CodCform10 || 1);
             insertParams.push(GDF.enums.OccurrenceStatus.Open);
             insertParams.push(GDF.enums.RecordStatus.Open);
 

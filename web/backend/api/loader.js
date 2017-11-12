@@ -2,12 +2,11 @@ var fs = require('fs');
 var path = require('path');
 
 exports.start = function (api) {
-    startValidators(api);
+    //startValidators(api);
     startControllers(api);
 };
 
 function startValidators (api) {
-
     var validatorsPath = path.resolve(__dirname + '/validators');
     var validators = fs.readdirSync(validatorsPath);
 
@@ -25,11 +24,9 @@ function startValidators (api) {
 
         api.use(currentRoute, currentValidator);
     }
-
 }
 
 function startControllers (api) {
-
     var controllersPath = path.resolve(__dirname + '/controllers');
     var controllers = fs.readdirSync(controllersPath);
 
@@ -46,5 +43,4 @@ function startControllers (api) {
 
         api.use(currentController, currentControllerModule);
     }
-
 };
