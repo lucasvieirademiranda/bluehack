@@ -13,6 +13,60 @@ let buildExpression = (sql, column, operator, value) => {
 
 };
 
+exports.postOccurrences = function(parameters, callback)
+{
+    database.connection(function(request, error) {
+        if (error)
+        {
+            callback(null, error);
+            return;
+        }
+
+        let sql = `INSERT INTO OCCURRENCE (
+                      UUID,
+                      OCCURRENCE_TYPE_ID,
+                      OCCURRENCE_SUBTYPE_ID,
+                      CREATE_DATE,
+                      OWNER_USER_ID,
+                      TITLE,
+                      DESCRIPTION,
+                      LATITUDE,
+                      LONGITUDE,
+                      CEP
+                      STATE,
+                      CITY,
+                      ADDRESS1,
+                      ADDRESS2,
+                      CRITICALITY) 
+                    VALUES (`;
+
+        sql += parameter.Uuid;
+        sql += ", " + parameter.OccurenceTypeId;
+        sql += ", " + parameter.OccurenceSubtypeId;                
+        sql += ", " + parameter.CreateDate;                
+        sql += ", " + parameter.OwnerUserId;                
+        sql += ", " + parameter.Title;                
+        sql += ", " + parameter.Description;                
+        sql += ", " + parameter.Latitude;                
+        sql += ", " + parameter.Longitude;                
+        sql += ", " + parameter.Cep;                
+        sql += ", " + parameter.State;                
+        sql += ", " + parameter.City;                
+        sql += ", " + parameter.Address1;                
+        sql += ", " + parameter.Address2;                
+        sql += ", " + parameter.Criticality;       
+        
+    request.query(sql, (error, result) => {
+            if (error)
+            {
+                callback(null, error);
+                return;   
+            }
+            callback({}, null);
+        });
+    })
+}
+
 exports.getOccurrences = function(parameters, callback)
 {
     database.connection(function(request, error) {
