@@ -427,7 +427,13 @@ GDFtemp = {
             callbackSuccess();
 
             // Voltar pela tela anterior
-            GDF.util.uploadOccurence(false, function() {
+            GDF.util.uploadOccurence(false, function () {
+                GDF.util.addMarkers({
+                    Latitude: GDF.settings.occurrenceLocal.lat,
+                    Longitude: GDF.settings.occurrenceLocal.lng,
+                    Title: self.cform7,
+                    Status: GDF.enums.OccurrenceStatus.Open
+                });
                 setTimeout(function() {
                     GDF.kendoMobileApp.navigate("#:back");
                 }, 2400)

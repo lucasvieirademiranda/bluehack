@@ -632,7 +632,7 @@ GDF.util.goToOnMap = function (target) {
     pos["target"] = target;
 
     GDF.settings.map.animateCamera(pos);
-}
+};
 
 GDF.util.getStatus = function (status) {
     switch (Number(status)) {
@@ -653,4 +653,34 @@ GDF.util.getStatus = function (status) {
             break;;
         default:
     }
+};
+
+GDF.util.addMarkers = function (item) {
+    if (item) {
+        GDF.settings.map.addMarker({
+            'position': { "lat": Number(item.Latitude), "lng": Number(item.Longitude) },
+            'title': item.Title,
+            'snippet': GDF.util.getStatus(item.Status)
+        }, function (marker) {
+            marker.showInfoWindow();
+        });
+
+        return;
+    }
+
+    GDF.sql.query("SELECT Latitude, Longitude, Title, Status FROM Occurrence", [], function (data) {
+        if (data.length === 0) {
+            return;
+        }
+
+        $.each(data, function (idx, item) {
+            GDF.settings.map.addMarker({
+                'position': { "lat": Number(item.Latitude), "lng": Number(item.Longitude) },
+                'title': item.Title,
+                'snippet': GDF.util.getStatus(item.Status)
+            }, function (marker) {
+                marker.showInfoWindow();
+            });
+        });
+    });
 }

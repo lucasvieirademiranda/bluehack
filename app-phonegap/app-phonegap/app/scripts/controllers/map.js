@@ -48,31 +48,19 @@ GDFtemp = {
         };
 
         var success = function (coords) {
+            GDF.unblockApp();
             GDF.util.goToOnMap({ lat: coords.latitude, lng: coords.longitude });
         };
 
         var defaultPos = function () {
+            GDF.unblockApp();
             GDF.util.goToOnMap({ lat: -23.5761473, lng: -46.6463977 });
         };
 
         getPosition();
 
         // Plota marcações das ocorrências
-        GDF.sql.query("SELECT Latitude, Longitude, Title, Status FROM Occurrence", [], function (data) {
-            if (data.length === 0) {
-                return;
-            }
-
-            $.each(data, function (idx, item) {
-                GDF.settings.addMarker({
-                    'position': { "lat": Number(item.Latitude), "lng": Number(item.Longitude) },
-                    'title': item.Title,
-                    'snippet': GDF.util.getStatus(item.Status)
-                }, function (marker) {
-                    marker.showInfoWindow();
-                });
-            });
-        });
+        GDF.util.addMarkers();
     },
 
     onClickOccurrence: function (e) {

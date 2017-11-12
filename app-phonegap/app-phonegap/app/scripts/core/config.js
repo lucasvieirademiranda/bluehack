@@ -3,13 +3,13 @@ GDF.settings.add({
     hasData: false,
 
     // TODO - ALTERAR PARA FALSE AO CRIAR RELEASE
-    devmode: true,
+    devmode: false,
 
     deviceId: "",
 
     // Service URI
     apiServerUrlDev: "http://localhost:80/",
-    apiServerUrlProd: "http://tst.com.br/",
+    apiServerUrlProd: "http://agentecidadao.mybluemix.net/",
 
     // Informacoes do login
     userdata: null,
